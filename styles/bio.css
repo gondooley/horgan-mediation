@@ -1,0 +1,13 @@
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #efe9e4;
+}
+
+p {
+  margin: 20px;
+  font-family: Helvetica, sans-serif;
+  font-size: 40px;
+  line-height: 60px;
+  background-color: lightblue;
+}
