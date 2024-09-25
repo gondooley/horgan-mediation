@@ -6,18 +6,143 @@ import { Halant, Montserrat } from 'next/font/google'
 const halantFont = Halant({ subsets: ['latin'], weight: '400' });
 const montserratFont = Montserrat({ subsets: ['latin'], weight: '300' });
 
-const CompanyName = () => {
+const CompanyName = ({ dark }) => {
 
   return (
     <div className={halantFont.className} >
       <div style={{ fontSize: '80px', lineHeight: '96px' }}>
-        <span className='company-name-outer'>Horgan</span><br />
+        <span className='company-name-outer' style={dark ? { color: '#efe9e4' } : {}}>Horgan</span><br />
         <span className='company-name-inner'>Mediation</span><br />
-        <span className='company-name-outer'>Solutions</span><br />
+        <span className='company-name-outer' style={dark ? { color: '#efe9e4' } : {}}>Solutions</span><br />
       </div>
     </div>
   );
 }
+
+const BioSection1 = () => {
+  return (
+    <div style={{
+      display: 'flex',
+      justifyContent: 'space-evenly',
+      width: '100%'
+    }}>
+      <div
+        style={{
+          flex: 1,
+          overflow: 'hidden',
+          backgroundColor: '#1e1e1e',
+          color: '#efe9e4',
+          padding: '24px',
+        }}
+      >
+        {bio.bio1}
+      </div>
+      <div style={{
+        position: 'relative',
+        flex: 1,
+        overflow: 'hidden'
+      }}>
+        <img
+          src="/images/med0-800x530.png"
+          alt="mediation symbol"
+          style={{
+            clipPath: 'inset(0 2px 2px 2px)',
+            position: 'absolute',
+            top: '50%',
+            left: '50%',
+            transform: 'translate(-50%, -50%)'
+          }}
+        />
+      </div>
+    </div>
+  );
+}
+
+const BioSection2 = () => {
+  return (
+    <div style={{
+      display: 'flex',
+      justifyContent: 'space-evenly',
+      width: '100%',
+      backgroundColor: '#1e1e1e',
+      alignItems: 'center',
+    }}>
+      <div style={{
+        flex: 1,
+        overflow: 'hidden'
+      }}>
+        <img
+          src="/images/med1-500x460.png"
+          alt="mediation symbol 2"
+          style={{
+            maxHeight: '100%',
+            maxWidth: '100%',
+            objectFit: 'contain'
+          }}
+        />
+      </div>
+      <div style={{
+        justifyContent: 'center',
+        flex: 1,
+        backgroundColor: '#1e1e1e',
+        textAlign: 'center',
+      }}>
+        <CompanyName dark={true} />
+      </div>
+      <p style={{
+        flex: 1,
+        overflow: 'hidden',
+        backgroundColor: '#1e1e1e',
+        color: '#efe9e4',
+        padding: '24px',
+      }}>
+        {bio.bio2}
+      </p>
+    </div>
+  );
+}
+
+const BioSection3 = () => {
+  return (
+    <div style={{
+      backgroundColor: '#1e1e1e',
+    }}>
+      <p style={{
+        marginLeft: '10%',
+        marginRight: '10%',
+        color: '#efe9e4',
+        padding: '24px',
+        flex: 1,
+        color: '#efe9e4',
+        padding: '24px',
+      }}>
+        {bio.bio3}
+      </p>
+      <BlankDivider />
+      <img
+        src="/images/med2-1920x960.png"
+        alt="shaking hands"
+        style={{
+          marginLeft: '20%',
+          marginRight: '20%',
+          width: '60%',
+          height: 'auto',
+        }}
+      />
+    </div>
+  );
+}
+
+const BlankDivider = () => {
+  return (
+    <div style={{
+      backgroundColor: '#1e1e1e',
+      minWidth: '100%',
+      minHeight: '50px',
+    }} />
+  );
+}
+
 const Bio = () => {
   console.log(JSON.stringify(bio));
   return (
@@ -25,6 +150,7 @@ const Bio = () => {
       style={{
         fontSize: '16px',
         lineHeight: '28px',
+        backgroundColor: '#1e1e1e',
 
       }}>
       <div style={{
@@ -44,8 +170,8 @@ const Bio = () => {
       <Image
         src="/images/Tadgh.png"
         alt="Tadgh Horgan"
-        width={600} // Set the width of the image
-        height={600} // Set the height of the image
+        width={600}
+        height={600}
         style={{
           position: 'absolute',
           top: '100px',
@@ -64,170 +190,19 @@ const Bio = () => {
       </p>
       <div style={{
         position: 'absolute',
+        backgroundColor: '#1e1e1e',
         top: '790px',
-        minWidth: '100%',
-        height: '5px',
-        background: 'linear-gradient(to bottom, #1e1e1e, #b3e5fc)',
-      }} />
-      <div style={{
-        position: 'absolute',
-        backgroundColor: '#b3e5fc',
-        top: '795px',
-        minWidth: '100%',
-        minHeight: '1700px',
+        minWidth: '100%'
       }}>
-        <p style={{
-          position: 'absolute',
-          top: '0px',
-          marginLeft: '30%',
-          marginRight: '30%',
-          backgroundColor: '#1e1e1e',
-          color: '#efe9e4',
-          padding: '24px',
-          borderRadius: '8px',
-          boxShadow: '0 0 8px #1e1e1e',
-        }}>
-          {bio.bio1}
-        </p>
-        <Image
-          src="/images/HMS01-373x500.png"
-          alt="Person on a little stone 1"
-          width={187} // Set the width of the image
-          height={250} // Set the height of the image
-          style={{
-            position: 'absolute',
-            top: '10px',
-            left: '10%',
-          }}
-        />
-        <Image
-          src="/images/HMS02-372x500.png"
-          alt="Person on a little stone 2"
-          width={187} // Set the width of the image
-          height={250} // Set the height of the image
-          style={{
-            position: 'absolute',
-            top: '10px',
-            right: '10%',
-          }}
-        />
-        <Image
-          src="/images/arrow1-200x150.png"
-          alt="arrow"
-          width={100} // Set the width of the image
-          height={75} // Set the height of the image
-          style={{
-            position: 'absolute',
-            top: '280px',
-            left: '20%',
-          }}
-        />
-        <Image
-          src="/images/arrow2-200x150.png"
-          alt="arrow"
-          width={100} // Set the width of the image
-          height={75} // Set the height of the image
-          style={{
-            position: 'absolute',
-            top: '280px',
-            right: '20%',
-          }}
-        />
-        <Image
-          src="/images/HMS03-500x500.png"
-          alt="Person on island 1"
-          width={250} // Set the width of the image
-          height={250} // Set the height of the image
-          style={{
-            position: 'absolute',
-            top: '300px',
-            left: '25%',
-          }}
-        />
-        <Image
-          src="/images/HMS04-500x500.png"
-          alt="Person on island 2"
-          width={250} // Set the width of the image
-          height={250} // Set the height of the image
-          style={{
-            position: 'absolute',
-            top: '300px',
-            right: '25%',
-          }}
-        />
-        <p style={{
-          position: 'absolute',
-          top: '550px',
-          marginLeft: '10%',
-          marginRight: '10%',
-          backgroundColor: '#1e1e1e',
-          color: '#efe9e4',
-          padding: '24px',
-          borderRadius: '8px',
-          boxShadow: '0 0 8px #1e1e1e',
-        }}>
-          {bio.bio2}
-        </p>
-        <Image
-          src="/images/HMS05-500x450.png"
-          alt="People on islands"
-          width={250} // Set the width of the image
-          height={250} // Set the height of the image
-          style={{
-            position: 'absolute',
-            top: '800px',
-            left: '20%',
-          }}
-        />
-        <Image
-          src="/images/arrow3-500x228.png"
-          alt="arrow"
-          width={125} // Set the width of the image
-          height={57} // Set the height of the image
-          style={{
-            position: 'absolute',
-            top: '875px',
-            left: '50%',
-            transform: 'translateX(-50%)',
-          }}
-        />
-        <Image
-          src="/images/HMS06-500x460.png"
-          alt="People on island"
-          width={250} // Set the width of the image
-          height={230} // Set the height of the image
-          style={{
-            position: 'absolute',
-            top: '810px',
-            right: '20%',
-          }}
-        />
-        <p style={{
-          position: 'absolute',
-          top: '1100px',
-          marginLeft: '10%',
-          marginRight: '10%',
-          backgroundColor: '#1e1e1e',
-          color: '#efe9e4',
-          padding: '24px',
-          borderRadius: '8px',
-          boxShadow: '0 0 8px #1e1e1e',
-        }}>
-          {bio.bio3}
-        </p>
-        <Image
-          src="/images/HMS07-500x252.png"
-          alt="People on island"
-          width={500} // Set the width of the image
-          height={252} // Set the height of the image
-          style={{
-            position: 'absolute',
-            top: '1400px',
-            left: '50%',
-            transform: 'translateX(-50%)'
-          }}
-        />
-
+        <BioSection1 />
+        <BlankDivider />
+        <BlankDivider />
+        <BioSection2 />
+        <BlankDivider />
+        <BioSection3 />
+        <BlankDivider />
+        <BlankDivider />
+        <BlankDivider />
       </div>
     </div>
   );
