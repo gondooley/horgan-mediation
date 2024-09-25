@@ -3,13 +3,13 @@ import '../styles/bio.css';
 import Image from 'next/image';
 import { Halant, Montserrat } from 'next/font/google'
 
-const gowun = Halant({ subsets: ['latin'], weight: '400' });
-const roboto = Montserrat({ subsets: ['latin'], weight: '300' });
+const halantFont = Halant({ subsets: ['latin'], weight: '400' });
+const montserratFont = Montserrat({ subsets: ['latin'], weight: '300' });
 
 const CompanyName = () => {
 
   return (
-    <div className={gowun.className} >
+    <div className={halantFont.className} >
       <div style={{ fontSize: '80px', lineHeight: '96px' }}>
         <span className='company-name-outer'>Horgan</span><br />
         <span className='company-name-inner'>Mediation</span><br />
@@ -21,7 +21,7 @@ const CompanyName = () => {
 const Bio = () => {
   console.log(JSON.stringify(bio));
   return (
-    <div className={roboto.className}
+    <div className={montserratFont.className}
       style={{
         fontSize: '16px',
         lineHeight: '28px',
