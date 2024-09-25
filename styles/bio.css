@@ -4,10 +4,15 @@ body {
   background-color: #efe9e4;
 }
 
-p {
-  margin: 20px;
-  font-family: Helvetica, sans-serif;
-  font-size: 40px;
-  line-height: 60px;
-  background-color: lightblue;
+.company {
+  font-size: '40px';
+  line-height: '60px';
+}
+
+.company-name-outer {
+  color: #1e1e1e;
+}
+
+.company-name-inner {
+  color: #a17556;
 }
