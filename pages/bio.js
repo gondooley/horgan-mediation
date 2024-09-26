@@ -118,7 +118,7 @@ const BioSection3 = () => {
       }}>
         {bio.bio3}
       </p>
-      <BlankDivider />
+      <BlankDivider height='50'/>
       <img
         src="/images/med2-1920x960.png"
         alt="shaking hands"
@@ -133,12 +133,12 @@ const BioSection3 = () => {
   );
 }
 
-const BlankDivider = () => {
+const BlankDivider = ({ height }) => {
   return (
     <div style={{
       backgroundColor: '#1e1e1e',
       minWidth: '100%',
-      minHeight: '50px',
+      minHeight: height + 'px',
     }} />
   );
 }
@@ -195,14 +195,11 @@ const Bio = () => {
         minWidth: '100%'
       }}>
         <BioSection1 />
-        <BlankDivider />
-        <BlankDivider />
+        <BlankDivider height='100' />
         <BioSection2 />
-        <BlankDivider />
+        <BlankDivider height='50' />
         <BioSection3 />
-        <BlankDivider />
-        <BlankDivider />
-        <BlankDivider />
+        <BlankDivider height='150' />
       </div>
     </div>
   );
