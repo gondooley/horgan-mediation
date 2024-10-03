@@ -1,6 +1,8 @@
+html {
+  scroll-behavior: smooth;
+}
+
 body {
-  margin: 0;
-  padding: 0;
   background-color: #efe9e4;
 }
 
@@ -9,10 +11,14 @@ body {
   line-height: '60px';
 }
 
-.company-name-outer {
+.dark {
   color: #1e1e1e;
 }
 
-.company-name-inner {
+.medium {
   color: #a17556;
+}
+
+.light {
+  color: #efe9e4;
 }

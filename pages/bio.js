@@ -6,14 +6,36 @@ import { Halant, Montserrat } from 'next/font/google'
 const halantFont = Halant({ subsets: ['latin'], weight: '400' });
 const montserratFont = Montserrat({ subsets: ['latin'], weight: '300' });
 
-const CompanyName = ({ dark }) => {
+const Menu = () => {
+  return (
+    <div
+      className={montserratFont.className + " dark"}
+      style={{
+        position: 'absolute',
+        top: '10%',
+        right: '10%',
+        fontSize: '40px',
+        lineHeight: '72px',
+        textAlign: 'right',
+      }}>
+      Contact<br />
+      <a href="./mediation">
+      Mediation<br />
+      </a>
+      <a href="#about">
+        About<br />
+      </a>
+    </div>
+  );
+}
 
+const CompanyName = ({ dark }) => {
   return (
     <div className={halantFont.className} >
       <div style={{ fontSize: '80px', lineHeight: '96px' }}>
-        <span className='company-name-outer' style={dark ? { color: '#efe9e4' } : {}}>Horgan</span><br />
-        <span className='company-name-inner'>Mediation</span><br />
-        <span className='company-name-outer' style={dark ? { color: '#efe9e4' } : {}}>Solutions</span><br />
+        <span className={dark ? 'light' : 'dark'}>Horgan</span><br />
+        <span className='medium'>Mediation</span><br />
+        <span className={dark ? 'light' : 'dark'}>Solutions</span><br />
       </div>
     </div>
   );
@@ -21,11 +43,13 @@ const CompanyName = ({ dark }) => {
 
 const BioSection1 = () => {
   return (
-    <div style={{
-      display: 'flex',
-      justifyContent: 'space-evenly',
-      width: '100%'
-    }}>
+    <div
+      id="about"
+      style={{
+        display: 'flex',
+        justifyContent: 'space-evenly',
+        width: '100%'
+      }}>
       <div
         style={{
           flex: 1,
@@ -68,20 +92,6 @@ const BioSection2 = () => {
       alignItems: 'center',
     }}>
       <div style={{
-        flex: 1,
-        overflow: 'hidden'
-      }}>
-        <img
-          src="/images/med1-500x460.png"
-          alt="mediation symbol 2"
-          style={{
-            maxHeight: '100%',
-            maxWidth: '100%',
-            objectFit: 'contain'
-          }}
-        />
-      </div>
-      <div style={{
         justifyContent: 'center',
         flex: 1,
         backgroundColor: '#1e1e1e',
@@ -118,7 +128,7 @@ const BioSection3 = () => {
       }}>
         {bio.bio3}
       </p>
-      <BlankDivider height='50'/>
+      <BlankDivider height='50' />
       <img
         src="/images/med2-1920x960.png"
         alt="shaking hands"
@@ -144,14 +154,12 @@ const BlankDivider = ({ height }) => {
 }
 
 const Bio = () => {
-  console.log(JSON.stringify(bio));
   return (
     <div className={montserratFont.className}
       style={{
         fontSize: '16px',
         lineHeight: '28px',
         backgroundColor: '#1e1e1e',
-
       }}>
       <div style={{
         position: 'absolute',
@@ -176,7 +184,7 @@ const Bio = () => {
           position: 'absolute',
           top: '100px',
           left: '50%',
-          transform: 'translate(-300px, 0)',
+          transform: 'translate(-200px, 0)',
         }}
       />
       <p style={{
@@ -201,6 +209,7 @@ const Bio = () => {
         <BioSection3 />
         <BlankDivider height='150' />
       </div>
+      <Menu />
     </div>
   );
 }
