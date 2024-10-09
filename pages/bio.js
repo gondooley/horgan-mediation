@@ -14,13 +14,13 @@ const Menu = () => {
         position: 'absolute',
         top: '10%',
         right: '10%',
-        fontSize: '40px',
-        lineHeight: '72px',
+        fontSize: '10vh',
+        lineHeight: '20vh',
         textAlign: 'right',
       }}>
       Contact<br />
       <a href="./mediation">
-      Mediation<br />
+        Mediation<br />
       </a>
       <a href="#about">
         About<br />
@@ -32,7 +32,7 @@ const Menu = () => {
 const CompanyName = ({ dark }) => {
   return (
     <div className={halantFont.className} >
-      <div style={{ fontSize: '80px', lineHeight: '96px' }}>
+      <div style={{ fontSize: '10vh', lineHeight: '12vh' }}>
         <span className={dark ? 'light' : 'dark'}>Horgan</span><br />
         <span className='medium'>Mediation</span><br />
         <span className={dark ? 'light' : 'dark'}>Solutions</span><br />
@@ -68,7 +68,7 @@ const BioSection1 = () => {
       }}>
         <img
           src="/images/med0-800x530.png"
-          alt="mediation symbol"
+          alt="mediation bridging image"
           style={{
             clipPath: 'inset(0 2px 2px 2px)',
             position: 'absolute',
@@ -108,6 +108,15 @@ const BioSection2 = () => {
       }}>
         {bio.bio2}
       </p>
+      <Image
+        src="/images/mii-approved-2024-outer-alpha.png"
+        alt="MII approved mediator 2024"
+        width={200}
+        height={200}
+        style={{
+          margin: '48px',
+        }}
+      />
     </div>
   );
 }
@@ -153,6 +162,96 @@ const BlankDivider = ({ height }) => {
   );
 }
 
+const CompanyNameContainer = () => {
+  return (
+    <div style={{
+      position: 'absolute',
+      top: '10%',
+      left: '10%',
+    }}>
+      <CompanyName />
+    </div>
+  );
+}
+
+const MIIApprovedImage = () => {
+  return (
+    <Image
+      src="/images/mii-approved-2024-outer-alpha.png"
+      alt="MII approved mediator 2024"
+      width={200}
+      height={200}
+      style={{
+        marginLeft: '10%',
+        transform: 'translate(0,-42%)'
+      }}
+    />
+  );
+}
+
+const MIIApprovedImageContainer = () => {
+  return (
+    <div style={{
+      position: 'absolute',
+      backgroundColor: '#1e1e1e',
+      top: '80%',
+      minWidth: '100%',
+      minHeight: '20%',
+    }}>
+      <MIIApprovedImage />
+    </div>
+  );
+}
+
+const TadghImage = () => {
+  return (
+    <img
+      src="/images/Tadgh.png"
+      alt="Tadgh Horgan"
+      style={{
+        height: '70%',
+        width: 'auto',
+        position: 'absolute',
+        top: '20%',
+        left: '50%',
+        transform: 'translate(-30%, 0)',
+      }}
+    />
+  );
+}
+
+const DeskBioContainer = () => {
+  return (
+    <p style={{
+      position: 'absolute',
+      top: '80%',
+      marginLeft: '60%',
+      color: '#efe9e4',
+      marginRight: '10%',
+    }}>
+      {bio.bio0}
+    </p>
+  );
+}
+
+const BioSections = () => {
+  return (
+    <div style={{
+      position: 'absolute',
+      backgroundColor: '#1e1e1e',
+      top: '100%',
+      minWidth: '100%'
+    }}>
+      <BioSection1 />
+      <BlankDivider height='100' />
+      <BioSection2 />
+      <BlankDivider height='50' />
+      <BioSection3 />
+      <BlankDivider height='150' />
+    </div>
+  );
+}
+
 const Bio = () => {
   return (
     <div className={montserratFont.className}
@@ -160,55 +259,13 @@ const Bio = () => {
         fontSize: '16px',
         lineHeight: '28px',
         backgroundColor: '#1e1e1e',
+        height: '100%',
       }}>
-      <div style={{
-        position: 'absolute',
-        top: '10%',
-        left: '10%'
-      }}>
-        <CompanyName />
-      </div>
-      <div style={{
-        position: 'absolute',
-        backgroundColor: '#1e1e1e',
-        top: '590px',
-        minWidth: '100%',
-        minHeight: '200px',
-      }} />
-      <Image
-        src="/images/Tadgh.png"
-        alt="Tadgh Horgan"
-        width={600}
-        height={600}
-        style={{
-          position: 'absolute',
-          top: '100px',
-          left: '50%',
-          transform: 'translate(-200px, 0)',
-        }}
-      />
-      <p style={{
-        position: 'absolute',
-        top: '600px',
-        marginLeft: '60%',
-        color: '#efe9e4',
-        marginRight: '10%',
-      }}>
-        {bio.bio0}
-      </p>
-      <div style={{
-        position: 'absolute',
-        backgroundColor: '#1e1e1e',
-        top: '790px',
-        minWidth: '100%'
-      }}>
-        <BioSection1 />
-        <BlankDivider height='100' />
-        <BioSection2 />
-        <BlankDivider height='50' />
-        <BioSection3 />
-        <BlankDivider height='150' />
-      </div>
+      <CompanyNameContainer />
+      <MIIApprovedImageContainer />
+      <TadghImage />
+      <DeskBioContainer />
+      <BioSections />
       <Menu />
     </div>
   );
