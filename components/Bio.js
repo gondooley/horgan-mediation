@@ -20,8 +20,7 @@ const BioSection1 = () => {
 
 const BioSection2 = () => {
   return (
-    <div style={{
-      display: 'flex',
+    <div className='flexbox-full-width' style={{
       justifyContent: 'space-evenly',
       width: '100%',
       backgroundColor: '#1e1e1e',

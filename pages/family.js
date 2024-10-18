@@ -1,6 +1,5 @@
 import Image from 'next/image';
 import bio from '../text/bio.json';
-import '../styles/bio.css';
 import { Montserrat } from 'next/font/google'
 
 const montserratFont = Montserrat({ subsets: ['latin'], weight: '300' });
