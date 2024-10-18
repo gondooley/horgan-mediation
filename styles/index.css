@@ -1,0 +1,74 @@
+img.MII-approval {
+  width: 200px;
+  height: 200px;
+  margin-left: 10%;
+  transform: translateY(-42%);
+  position: absolute;
+  top: 80%;
+}
+
+img.tadgh {
+  height: 90%;
+  width: auto;
+  position: absolute;
+  top: 5%;
+  left: 50%;
+  transform: translate(-30%, 0);
+}
+
+p.desk-bio {
+  position: absolute;
+  top: 82%;
+  margin-left: 60%;
+  color: #efe9e4;
+  margin-right: 10%;
+}
+
+.background-image {
+  background-size: 'cover';
+  background-position: 'center';
+  background-image: url('/images/med0-800x530.png');
+}
+
+.company-name {
+  font-size: 12vh;
+  line-height: 14vh;
+  color: var(--dark);
+  position: absolute;
+  top: 10%;
+  left: 10%;
+}
+
+.desk {
+  position: absolute;
+  background-color: var(--dark);
+  min-height: 20vh;
+  min-width: 100%;
+  bottom: 0px;
+}
+
+.flex-normal {
+  flex: 1;
+}
+
+.flexbox-full-width {
+  display: flex;
+  align-items: stretch;
+}
+
+.menu-wide {
+  position: absolute;
+  top: 10%;
+  right: 10%;
+  font-size: 3vw;
+  line-height: min(min(21vh, 21vw), 75) + 'px';
+  text-align: right;
+}
+
+.home-page {
+  min-height: 500px;
+}
+
+.padding-normal {
+  padding: 24px;
+}

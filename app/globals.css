@@ -1,32 +1,41 @@
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+@font-face {
+  font-family: 'Halant';
+  font-weight: 400;
+  font-style: normal;
+  src: url('fonts/Halant-Regular.ttf') format('truetype');
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+@font-face {
+  font-family: 'Montserrat';
+  font-weight: 300;
+  font-style: normal;
+  src: url('fonts/Montserrat-Light.ttf') format('truetype');
+}
+
+:root {
+  --light: #efe9e4;
+  --medium: #a17556;
+  --dark: #1e1e1e;
 }
 
 html,
-body, #__next {
+body,
+#__next {
   height: 100%;
   overflow-x: hidden;
   margin: 0;
   padding: 0;
+  scroll-behavior: smooth;
 }
 
 body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+  color: var(--dark);
+  background: var(--light);
+  font-family: 'Montserrat', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   display: flex;
   flex-direction: column;
-  min-height: 100vh;
 }
 
 .page-wrapper {
@@ -38,11 +47,7 @@ footer {
   position: absolute;
   bottom: 0;
   width: 100%;
-  z-index: 1000; /* Ensure it appears above other content */
-}
-
-.page-wrapper {
-  flex-grow: 1; /* Make the content fill available space */
+  z-index: 1000;
 }
 
 * {
@@ -56,8 +61,14 @@ a {
   text-decoration: none;
 }
 
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
-  }
+span.medium {
+  color: var(--medium);
+}
+
+.halant-font {
+  font-family: 'Halant', serif;
+}
+
+.montserrat-font {
+  font-family: 'Montserrat', sans-serif;
 }
