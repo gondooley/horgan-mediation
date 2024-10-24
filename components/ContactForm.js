@@ -1,40 +1,35 @@
 import React, { useState } from 'react';
 
 function ContactForm() {
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    message: ''
-  });
-  
+  const [formData, setFormData] = useState({ name: '', email: '', message: '' });
+
   const handleChange = (e) => {
     setFormData({
       ...formData,
-      [e.target.name]: e.target.value
+      [e.target.name]: e.target.value,
     });
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    // Send the form data to your server
     try {
       const response = await fetch('/api/contact', {
         method: 'POST',
         headers: {
-          'Content-Type': 'application/json'
+          'Content-Type': 'application/json',
         },
-        body: JSON.stringify(formData)
+        body: JSON.stringify(formData),
       });
 
       if (response.ok) {
-        alert('Message sent successfully!');
+        alert('Message sent!');
         setFormData({ name: '', email: '', message: '' });
       } else {
         alert('Failed to send message.');
       }
     } catch (error) {
-      console.error('Error sending message:', error);
+      console.error('Error:', error);
     }
   };
 

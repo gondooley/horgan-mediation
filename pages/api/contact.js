@@ -1,7 +1,7 @@
 import { SESClient, SendEmailCommand } from '@aws-sdk/client-ses';
 
 // Initialize SES client
-const ses = new SESClient({ region: process.env.AWS_REGION });
+const ses = new SESClient({ region: process.env.MY_AWS_REGION });
 
 export default async function handler(req, res) {
   if (req.method === 'POST') {
