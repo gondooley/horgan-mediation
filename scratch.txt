@@ -1,0 +1,14 @@
+fetch('horganmediation.ie/api/contact', {
+  method: 'POST', // Specifies that this is a POST request
+  headers: {
+    'Content-Type': 'application/json', // Ensure the content is JSON
+  },
+  body: JSON.stringify({
+    name: 'John Doe',          // Test data for the "name" field
+    email: 'johndoe@test.com', // Test data for the "email" field
+    message: 'This is a test message.' // Test data for the "message" field
+  }),
+})
+  .then((response) => response.json())  // Parse the JSON response from the server
+  .then((data) => console.log('Success:', data)) // Log the response if successful
+  .catch((error) => console.error('Error:', error)); // Log any errors

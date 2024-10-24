@@ -4,7 +4,7 @@ import HoldingPage from '@/components/UnderConstruction';
 
 function MyApp({ Component, pageProps }) {
 
-  const underConstruction = true;
+  const underConstruction = false;
 
   return (
     <>

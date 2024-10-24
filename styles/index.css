@@ -1,10 +1,13 @@
 img.MII-approval {
   width: 200px;
   height: 200px;
-  margin-left: 10%;
-  transform: translateY(-42%);
+}
+
+img.on-desk {
   position: absolute;
+  left: 10%;
   top: 80%;
+  transform: translateY(-42%);
 }
 
 img.tadgh {
@@ -24,19 +27,22 @@ p.desk-bio {
   margin-right: 10%;
 }
 
-.background-image {
-  background-size: 'cover';
-  background-position: 'center';
+.background-image-bridge {
+  margin: 24px;
+  background-size: cover;
+  background-position: center;
   background-image: url('/images/med0-800x530.png');
+}
+
+.blank-divider {
+  min-width: '100%';
+  min-height: '50px';
 }
 
 .company-name {
   font-size: 12vh;
   line-height: 14vh;
   color: var(--dark);
-  position: absolute;
-  top: 10%;
-  left: 10%;
 }
 
 .desk {
@@ -56,19 +62,40 @@ p.desk-bio {
   align-items: stretch;
 }
 
-.menu-wide {
+.float {
   position: absolute;
   top: 10%;
-  right: 10%;
-  font-size: 3vw;
-  line-height: min(min(21vh, 21vw), 75) + 'px';
-  text-align: right;
+  left: 10%;
 }
 
 .home-page {
   min-height: 500px;
 }
 
+.margin-double {
+  margin: 48px;
+}
+
+.menu-not-so-wide {
+  font-size: 48px;
+  line-height: 64px;
+  text-align: right;
+}
+
+.menu-wide {
+  position: absolute;
+  top: 10%;
+  right: 5vw;
+  font-size: 3vw;
+  line-height: min(min(21vh, 21vw), 75) + 'px';
+  text-align: right;
+}
+
 .padding-normal {
   padding: 24px;
+}
+
+.position-bio {
+  position: absolute;
+  top: 100%;
 }

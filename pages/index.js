@@ -9,14 +9,14 @@ const MIIApprovedImage = () => {
     <img
       src="/images/mii-approved-2024-outer-alpha.png"
       alt="MII approved mediator 2024"
-      className='MII-approval'
+      className='MII-approval on-desk'
     />
   );
 }
 
 const Desk = () => {
   return (
-    <div className='desk'/>
+    <div className='desk' />
   );
 }
 
@@ -40,37 +40,31 @@ const DeskBioContainer = () => {
 
 const Menu = () => {
 
-  const {screenWidth} =  useViewportSize();
+  const { screenWidth } = useViewportSize();
 
   return (
     screenWidth > 800
-    ? <div className='montserrat-font dark menu-wide'>
-      Contact<br />
-      <a href="./mediation">
-        Mediation<br />
-      </a>
-      <a href="#about">
-        About<br />
-      </a>
-    </div>
-    : <div className='montserrat-font dark'
-    style={{
-      position: 'absolute',
-      top: '10%',
-      right: '10%',
-      fontSize: '48px',
-      lineHeight: '64px',
-      textAlign: 'right',
-    }}>
-      Menu
-    </div>
+      ? <div className='montserrat-font menu-wide'>
+        Contact<br />
+        <a href="./mediation">
+          Mediation<br />
+        </a>
+        <a href="#about">
+          About<br />
+        </a>
+      </div>
+      : <div className='montserrat-font menu-not-so-wide'>
+        Menu
+      </div>
   );
 }
 
 const Home = () => {
   return (
     <div className='home-page'>
-      <CompanyName />
+      <div className='float'>
+        <CompanyName />
+      </div>
       <Desk />
       <MIIApprovedImage />
       <TadghImage />
