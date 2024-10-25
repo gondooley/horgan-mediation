@@ -1,10 +1,10 @@
 import ContactForm from "@/components/ContactForm";
 import MIIApprovedImage from "@/components/MIIApproved";
-import { LandscapeView, PortraitView } from "@/components/ViewportSizeHook";
+import { LandscapeView, NarrowView, PortraitView, WideView } from "@/components/ViewportSizeHook";
 import { useEffect, useState } from "react";
 import { BrowserView, MobileView } from "react-device-detect";
 
-const ContactBrowserLayout = () => {
+const ContactBrowserWideLayout = () => {
   return (
     <div>
       <h1>Contact Us</h1>
@@ -31,7 +31,12 @@ const Contact = () => {
           </LandscapeView>
         </MobileView>
         <BrowserView>
-          <ContactBrowserLayout />
+        <WideView>
+          Browser wide view
+        </WideView>
+          <NarrowView>
+          <ContactBrowserWideLayout />
+          </NarrowView>
         </BrowserView>
         <MIIApprovedImage />
       </>

@@ -1,7 +1,8 @@
 import CompanyName from '@/components/CompanyName';
 import bio from '../text/bio.json'
-import { NarrowView, WideView } from '@/components/ViewportSizeHook';
+import { LandscapeView, NarrowView, PortraitView, WideView } from '@/components/ViewportSizeHook';
 import MIIApprovedImage from '@/components/MIIApproved';
+import { BrowserView, MobileView } from 'react-device-detect';
 
 const BioSection1 = () => {
   return (
@@ -73,14 +74,24 @@ const BioSections = () => {
 const Bio = () => {
   return (
     <>
-      <WideView>
-        <div className='montserrat-font'>
-          <BioSections />
-        </div>
-      </WideView>
-      <NarrowView>
-        Browser narrow view
-      </NarrowView>
+      <BrowserView>
+        <WideView>
+          <div className='montserrat-font'>
+            <BioSections />
+          </div>
+        </WideView>
+        <NarrowView>
+          Browser narrow view
+        </NarrowView>
+      </BrowserView>
+      <MobileView>
+        <PortraitView>
+          Mobile portrait view
+        </PortraitView>
+        <LandscapeView>
+          Mobile landscape view
+        </LandscapeView>
+      </MobileView>
       <MIIApprovedImage />
     </>
   );

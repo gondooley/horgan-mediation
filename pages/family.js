@@ -3,7 +3,7 @@ import bio from '../text/bio.json';
 import { Montserrat } from 'next/font/google'
 import { useEffect, useState } from 'react';
 import { BrowserView, MobileView } from 'react-device-detect';
-import { LandscapeView, PortraitView } from '@/components/ViewportSizeHook';
+import { LandscapeView, NarrowView, PortraitView, WideView } from '@/components/ViewportSizeHook';
 import MIIApprovedImage from '@/components/MIIApproved';
 
 const montserratFont = Montserrat({ subsets: ['latin'], weight: '300' });
@@ -202,14 +202,19 @@ const Family = () => {
           </LandscapeView>
         </MobileView>
         <BrowserView>
-          <FamilyBrowserLayout />
+          <WideView>
+            <FamilyBrowserLayout />
+          </WideView>
+          <NarrowView>
+            Browser narrow view
+          </NarrowView>
         </BrowserView>
         <MIIApprovedImage />
       </>
     );
   }, []);
 
-  return (<>{ clientSideLayout }</>);
+  return (<>{clientSideLayout}</>);
 }
 
 export default Family;
