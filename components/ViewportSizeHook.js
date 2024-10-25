@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 
-function useViewportSize() {
+export function useViewportSize() {
   const [viewportSize, setViewportSize] = useState({
     screenWidth: 0,
     screenHeight: 0,
@@ -14,8 +14,7 @@ function useViewportSize() {
           screenHeight: window.innerHeight,
         });
       };
-
-      console.log('Add event listener for window resize');
+      handleResize();
       window.addEventListener('resize', handleResize);
 
       // Cleanup event listener on component unmount
@@ -28,4 +27,66 @@ function useViewportSize() {
   return viewportSize;
 }
 
-export default useViewportSize;
+export const PortraitView = ({ children }) => {
+  const isPortraitOrSquare = useViewportSize().screenHeight >= useViewportSize().screenWidth;
+  if (isPortraitOrSquare) {
+    return (
+    <>
+      {children}
+    </>
+  )} else {
+    return (
+    <>
+     {null}
+    </>
+  );}
+}
+
+export const LandscapeView = ({ children }) => {
+  const isLandscape = useViewportSize().screenHeight < useViewportSize().screenWidth;
+  if (isLandscape) {
+    return (
+      <>
+        {children}
+      </>
+    );
+  } else {
+    return (
+      <>
+        {null}
+      </>
+    );
+  }
+}
+
+export const WideView = ({ children }) => {
+  const isWide = useViewportSize().screenWidth >= 800;
+  if (isWide) {
+    return (
+    <>
+      {children}
+    </>
+  )} else {
+    return (
+    <>
+     {null}
+    </>
+  );}
+}
+
+export const NarrowView = ({ children }) => {
+  const isNarrow = useViewportSize().screenWidth < 800;
+  if (isNarrow) {
+    return (
+      <>
+        {children}
+      </>
+    );
+  } else {
+    return (
+      <>
+        {null}
+      </>
+    );
+  }
+}

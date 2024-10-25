@@ -1,18 +1,10 @@
-import Bio from '../components/Bio';
+import React, { useEffect, useState } from 'react';
 import CompanyName from '@/components/CompanyName';
 import bio from '../text/bio.json'
-import useViewportSize from '@/components/ViewportSizeHook';
+import { PortraitView, LandscapeView, WideView, NarrowView } from '@/components/ViewportSizeHook';
 import '../styles/index.css'
-
-const MIIApprovedImage = () => {
-  return (
-    <img
-      src="/images/mii-approved-2024-outer-alpha.png"
-      alt="MII approved mediator 2024"
-      className='MII-approval on-desk'
-    />
-  );
-}
+import { BrowserView, MobileView } from 'react-device-detect';
+import MIIApprovedImage from '@/components/MIIApproved';
 
 const Desk = () => {
   return (
@@ -38,41 +30,74 @@ const DeskBioContainer = () => {
   );
 }
 
-const Menu = () => {
-
-  const { screenWidth } = useViewportSize();
-
-  return (
-    screenWidth > 800
-      ? <div className='montserrat-font menu-wide'>
-        Contact<br />
-        <a href="./mediation">
-          Mediation<br />
-        </a>
-        <a href="#about">
-          About<br />
-        </a>
-      </div>
-      : <div className='montserrat-font menu-not-so-wide'>
-        Menu
-      </div>
-  );
-}
-
-const Home = () => {
+const HomeBrowserWideView = () => {
   return (
     <div className='home-page'>
       <div className='float'>
         <CompanyName />
       </div>
       <Desk />
-      <MIIApprovedImage />
+      <div className='on-desk'>
+        <MIIApprovedImage />
+      </div>
       <TadghImage />
       <DeskBioContainer />
-      <Menu />
-      <Bio />
     </div>
   );
+}
+
+const HomeBrowserNarrowView = () => {
+  return (
+    <>
+      <CompanyName />
+      <Desk />
+      <TadghImage />
+      <DeskBioContainer />
+      <MIIApprovedImage />
+    </>
+  );
+}
+
+const HomeMobilePortraitView = () => {
+  return (
+    <>
+      <CompanyName />
+      <Desk />
+      <TadghImage />
+      <DeskBioContainer />
+      <MIIApprovedImage />
+    </>
+
+  );
+}
+
+const Home = () => {
+  const [clientSideLayout, setClientSideLayout] = useState(null);
+
+  useEffect(() => {
+    setClientSideLayout(
+      <>
+        <MobileView>
+          <PortraitView>
+            <HomeMobilePortraitView />
+          </PortraitView>
+          <LandscapeView>
+            Mobile landscape view
+          </LandscapeView>
+        </MobileView>
+        <BrowserView>
+          <WideView>
+            <HomeBrowserWideView />
+          </WideView>
+          <NarrowView>
+            <HomeBrowserNarrowView />
+          </NarrowView>
+        </BrowserView>
+      </>
+    );
+  }, []);
+
+  return (<>{clientSideLayout}</>);
 }
 
 export default Home;

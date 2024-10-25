@@ -1,6 +1,10 @@
 import { Halant, Montserrat } from 'next/font/google'
 import Link from 'next/link';
 import '../styles/mediation.css';
+import { useEffect, useState } from 'react';
+import { BrowserView, MobileView } from 'react-device-detect';
+import { LandscapeView, NarrowView, PortraitView, WideView } from '@/components/ViewportSizeHook';
+import MIIApprovedImage from '@/components/MIIApproved';
 
 const halantFont = Halant({ subsets: ['latin'], weight: '400' });
 const montserratFont = Montserrat({ subsets: ['latin'], weight: '300' });
@@ -110,7 +114,7 @@ const SteppingStones = () => {
   );
 }
 
-const Mediation = () => {
+const MediationBrowserLayout = () => {
   return (
     <div style={{
       backgroundColor: '#efe9e4',
@@ -186,6 +190,36 @@ const Mediation = () => {
       <SteppingStones />
     </div>
   );
+}
+
+const Mediation = () => {
+  const [clientSideLayout, setClientSideLayout] = useState(null);
+
+  useEffect(() => {
+    setClientSideLayout(
+      <>
+        <MobileView>
+          <PortraitView>
+            Mobile portrait view
+          </PortraitView>
+          <LandscapeView>
+            <MediationBrowserLayout />
+          </LandscapeView>
+        </MobileView>
+        <BrowserView>
+          <WideView>
+            <MediationBrowserLayout />
+          </WideView>
+          <NarrowView>
+            Narrow browser view
+          </NarrowView>
+        </BrowserView>
+        <MIIApprovedImage />
+      </>
+    );
+  }, []);
+
+  return (<>{clientSideLayout}</>);
 }
 
 export default Mediation;

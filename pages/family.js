@@ -1,10 +1,14 @@
 import Image from 'next/image';
 import bio from '../text/bio.json';
 import { Montserrat } from 'next/font/google'
+import { useEffect, useState } from 'react';
+import { BrowserView, MobileView } from 'react-device-detect';
+import { LandscapeView, PortraitView } from '@/components/ViewportSizeHook';
+import MIIApprovedImage from '@/components/MIIApproved';
 
 const montserratFont = Montserrat({ subsets: ['latin'], weight: '300' });
 
-const Family = () => {
+const FamilyBrowserLayout = () => {
   return (
     <div
       className={montserratFont.className}
@@ -174,9 +178,38 @@ const Family = () => {
           transform: 'translateX(-50%)'
         }}
       />
+      <img alt="couple arguing" src="/images/family-stock/argue.png" width="300" height="auto" />
+      <img alt="woman comforting child" src="/images/family-stock/comfort.jpg" width="300" height="auto" />
+      <img alt="couple arguing in front of children" src="/images/family-stock/four-family.png" width="300" height="auto" />
+      <img alt="two upset women" src="/images/family-stock/upset.png" width="300" height="auto" />
 
     </div>
   );
+}
+
+const Family = () => {
+  const [clientSideLayout, setClientSideLayout] = useState(null);
+
+  useEffect(() => {
+    setClientSideLayout(
+      <>
+        <MobileView>
+          <PortraitView>
+            Mobile portrait view
+          </PortraitView>
+          <LandscapeView>
+            Mobile landscape view
+          </LandscapeView>
+        </MobileView>
+        <BrowserView>
+          <FamilyBrowserLayout />
+        </BrowserView>
+        <MIIApprovedImage />
+      </>
+    );
+  }, []);
+
+  return (<>{ clientSideLayout }</>);
 }
 
 export default Family;

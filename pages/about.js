@@ -1,5 +1,7 @@
 import CompanyName from '@/components/CompanyName';
 import bio from '../text/bio.json'
+import { NarrowView, WideView } from '@/components/ViewportSizeHook';
+import MIIApprovedImage from '@/components/MIIApproved';
 
 const BioSection1 = () => {
   return (
@@ -7,7 +9,7 @@ const BioSection1 = () => {
       <div className='flex-normal padding-normal'>
         {bio.bio1}
       </div>
-      <div className='flex-normal background-image-bridge'/>
+      <div className='flex-normal background-image-bridge' />
     </div>
   );
 }
@@ -16,7 +18,7 @@ const BioSection2 = () => {
   return (
     <div className='flexbox-full-width'>
       <div className='flex-normal'>
-      <CompanyName />
+        <CompanyName />
       </div>
       <p className='flex-normal padding-normal'>
         {bio.bio2}
@@ -48,7 +50,7 @@ const BioSection3 = () => {
 
 const BlankDivider = () => {
   return (
-    <div className='blank-divider'/>
+    <div className='blank-divider' />
   );
 }
 
@@ -70,9 +72,17 @@ const BioSections = () => {
 
 const Bio = () => {
   return (
-    <div className='montserrat-font'>
-      <BioSections />
-    </div>
+    <>
+      <WideView>
+        <div className='montserrat-font'>
+          <BioSections />
+        </div>
+      </WideView>
+      <NarrowView>
+        Browser narrow view
+      </NarrowView>
+      <MIIApprovedImage />
+    </>
   );
 }
 

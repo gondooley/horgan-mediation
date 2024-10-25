@@ -1,15 +1,3 @@
-img.MII-approval {
-  width: 200px;
-  height: 200px;
-}
-
-img.on-desk {
-  position: absolute;
-  left: 10%;
-  top: 80%;
-  transform: translateY(-42%);
-}
-
 img.tadgh {
   height: 90%;
   width: auto;
@@ -76,19 +64,11 @@ p.desk-bio {
   margin: 48px;
 }
 
-.menu-not-so-wide {
-  font-size: 48px;
-  line-height: 64px;
-  text-align: right;
-}
-
-.menu-wide {
+.on-desk {
   position: absolute;
-  top: 10%;
-  right: 5vw;
-  font-size: 3vw;
-  line-height: min(min(21vh, 21vw), 75) + 'px';
-  text-align: right;
+  left: 10%;
+  top: 80%;
+  transform: translateY(-42%);
 }
 
 .padding-normal {
