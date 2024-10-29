@@ -11,6 +11,7 @@ const ses = new SESClient({ region: myRegion });
 
 export default async function handler(req, res) {
   console.log('API Route Invoked'); // Check if the API route is hit
+  console.log('My region: ', myRegion);
   console.log(`Request Method: ${req.method}`); // Log the request method
 
   if (req.method === 'POST') {
