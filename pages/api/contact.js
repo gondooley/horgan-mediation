@@ -1,17 +1,18 @@
 import { SESClient, SendEmailCommand } from '@aws-sdk/client-ses';
-import { fromIni } from '@aws-sdk/credential-providers';
 
+// const myRegion = process.env.MY_AWS_REGION || 'eu-west-1';
+// const senderEmail = process.env.REACT_APP_SENDER_EMAIL || 'ger@yourapp.ie';
+// const receiverEmail = process.env.REACT_APP_RECEIVER_EMAIL || 'for_tadgh@yourapp.ie';
 
-const myRegion = process.env.MY_AWS_REGION || 'eu-west-1';
-const senderEmail = process.env.REACT_APP_SENDER_EMAIL || 'ger@yourapp.ie';
-const receiverEmail = process.env.REACT_APP_RECEIVER_EMAIL || 'for_tadgh@yourapp.ie';
+const myRegion = process.env.MY_AWS_REGION;
+const senderEmail = process.env.REACT_APP_SENDER_EMAIL;
+const receiverEmail = process.env.REACT_APP_RECEIVER_EMAIL;
 
 
 // Initialize SES client
 // const ses = new SESClient({ region: myRegion });
 
-const ses = new SESClient({ region: myRegion, credentials: fromIni() });
-console.log("SES client credentials loaded:", ses.config.credentials);
+const ses = new SESClient({ region: myRegion });
 
 export default async function handler(req, res) {
   console.log('API Route Invoked'); // Check if the API route is hit
