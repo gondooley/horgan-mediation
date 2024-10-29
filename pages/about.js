@@ -1,8 +1,8 @@
 import CompanyName from '@/components/CompanyName';
 import bio from '../text/bio.json'
 import { LandscapeView, NarrowView, PortraitView, WideView } from '@/components/ViewportSizeHook';
-import MIIApprovedImage from '@/components/MIIApproved';
 import { BrowserView, MobileView } from 'react-device-detect';
+import PageWithMenu from '@/components/PageWithMenu';
 
 const BioSection1 = () => {
   return (
@@ -55,9 +55,9 @@ const BlankDivider = () => {
   );
 }
 
-const BioSections = () => {
+const AboutWide = () => {
   return (
-    <div className='position-bio'>
+    <div>
       <BioSection1 />
       <BlankDivider />
       <BlankDivider />
@@ -71,17 +71,25 @@ const BioSections = () => {
   );
 }
 
-const Bio = () => {
+const AboutNarrow = () => {
   return (
     <>
+    <BioSection1 />
+    <BioSection2 />
+    <BioSection3 /> 
+    </>
+  );
+}
+
+const Bio = () => {
+  return (
+    <PageWithMenu>
       <BrowserView>
         <WideView>
-          <div className='montserrat-font'>
-            <BioSections />
-          </div>
+          <AboutWide />
         </WideView>
         <NarrowView>
-          Browser narrow view
+          <AboutNarrow />
         </NarrowView>
       </BrowserView>
       <MobileView>
@@ -92,8 +100,7 @@ const Bio = () => {
           Mobile landscape view
         </LandscapeView>
       </MobileView>
-      <MIIApprovedImage />
-    </>
+    </PageWithMenu>
   );
 }
 

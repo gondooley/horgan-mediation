@@ -1,15 +1,16 @@
-import Image from 'next/image';
 import bio from '../text/bio.json';
 import { Montserrat } from 'next/font/google'
 import { useEffect, useState } from 'react';
 import { BrowserView, MobileView } from 'react-device-detect';
 import { LandscapeView, NarrowView, PortraitView, WideView } from '@/components/ViewportSizeHook';
 import MIIApprovedImage from '@/components/MIIApproved';
+import PageWithMenu from '@/components/PageWithMenu';
 
 const montserratFont = Montserrat({ subsets: ['latin'], weight: '300' });
 
 const FamilyBrowserLayout = () => {
   return (
+    <PageWithMenu>
     <div
       className={montserratFont.className}
       style={{
@@ -40,7 +41,7 @@ const FamilyBrowserLayout = () => {
           {bio.fam1}
         </p>
       </div>
-      <Image
+      <img
         src="/images/HMS01-373x500.png"
         alt="Person on a little stone 1"
         width={187}
@@ -51,7 +52,7 @@ const FamilyBrowserLayout = () => {
           left: '10%',
         }}
       />
-      <Image
+      <img
         src="/images/HMS02-372x500.png"
         alt="Person on a little stone 2"
         width={187}
@@ -62,7 +63,7 @@ const FamilyBrowserLayout = () => {
           right: '10%',
         }}
       />
-      <Image
+      <img
         src="/images/arrow1-200x150.png"
         alt="arrow"
         width={100}
@@ -73,7 +74,7 @@ const FamilyBrowserLayout = () => {
           left: '20%',
         }}
       />
-      <Image
+      <img
         src="/images/arrow2-200x150.png"
         alt="arrow"
         width={100}
@@ -84,7 +85,7 @@ const FamilyBrowserLayout = () => {
           right: '20%',
         }}
       />
-      <Image
+      <img
         src="/images/HMS03-500x500.png"
         alt="Person on island 1"
         width={250}
@@ -95,7 +96,7 @@ const FamilyBrowserLayout = () => {
           left: '25%',
         }}
       />
-      <Image
+      <img
         src="/images/HMS04-500x500.png"
         alt="Person on island 2"
         width={250}
@@ -119,7 +120,7 @@ const FamilyBrowserLayout = () => {
       }}>
         {bio.fam2}
       </p>
-      <Image
+      <img
         src="/images/HMS05-500x450.png"
         alt="People on islands"
         width={250}
@@ -130,7 +131,7 @@ const FamilyBrowserLayout = () => {
           left: '20%',
         }}
       />
-      <Image
+      <img
         src="/images/arrow3-500x228.png"
         alt="arrow"
         width={125}
@@ -142,7 +143,7 @@ const FamilyBrowserLayout = () => {
           transform: 'translateX(-50%)',
         }}
       />
-      <Image
+      <img
         src="/images/HMS06-500x460.png"
         alt="People on island"
         width={250}
@@ -166,7 +167,7 @@ const FamilyBrowserLayout = () => {
       }}>
         {bio.fam3}
       </p>
-      <Image
+      <img
         src="/images/HMS07-500x252.png"
         alt="People on island"
         width={500}
@@ -177,13 +178,14 @@ const FamilyBrowserLayout = () => {
           left: '50%',
           transform: 'translateX(-50%)'
         }}
-      />
+      /> 
       <img alt="couple arguing" src="/images/family-stock/argue.png" width="300" height="auto" />
       <img alt="woman comforting child" src="/images/family-stock/comfort.jpg" width="300" height="auto" />
       <img alt="couple arguing in front of children" src="/images/family-stock/four-family.png" width="300" height="auto" />
       <img alt="two upset women" src="/images/family-stock/upset.png" width="300" height="auto" />
 
     </div>
+    </PageWithMenu>
   );
 }
 

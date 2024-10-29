@@ -1,7 +1,17 @@
 img.tadgh {
+  position: absolute;
+}
+
+img.tadgh-portrait {
+  height: 50%;
+  width: auto;
+  top: 40%;
+  right: -30%;
+}
+
+img.tadgh-browser {
   height: 90%;
   width: auto;
-  position: absolute;
   top: 5%;
   left: 50%;
   transform: translate(-30%, 0);
@@ -73,9 +83,4 @@ p.desk-bio {
 
 .padding-normal {
   padding: 24px;
-}
-
-.position-bio {
-  position: absolute;
-  top: 100%;
 }

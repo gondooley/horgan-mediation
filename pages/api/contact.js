@@ -1,7 +1,13 @@
 import { SESClient, SendEmailCommand } from '@aws-sdk/client-ses';
 
+const myRegion = process.env.MY_AWS_REGION;
+const senderEmail = process.env.REACT_APP_SENDER_EMAIL;
+const receiverEmail = process.env.REACT_APP_RECEIVER_EMAIL;
+
+
+
 // Initialize SES client
-const ses = new SESClient({ region: process.env.MY_AWS_REGION });
+const ses = new SESClient({ region: myRegion });
 
 export default async function handler(req, res) {
   console.log('API Route Invoked'); // Check if the API route is hit
@@ -15,9 +21,9 @@ export default async function handler(req, res) {
     console.log('Received data:', { name, email, message });
 
     const params = {
-      Source: process.env.REACT_APP_SENDER_EMAIL,
+      Source: senderEmail,
       Destination: {
-        ToAddresses: [process.env.REACT_APP_RECEIVER_EMAIL],
+        ToAddresses: [receiverEmail],
       },
       Message: {
         Subject: { Data: `Contact form submission from ${name}` },

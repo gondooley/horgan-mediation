@@ -1,0 +1,43 @@
+{
+  "api": {
+    "contactFormAPI": {
+      "dependsOn": [
+        {
+          "attributes": [
+            "Name",
+            "Arn"
+          ],
+          "category": "function",
+          "resourceName": "lambdaHMSSendEmail"
+        }
+      ],
+      "providerPlugin": "awscloudformation",
+      "service": "API Gateway"
+    }
+  },
+  "function": {
+    "lambdaHMSSendEmail": {
+      "build": true,
+      "providerPlugin": "awscloudformation",
+      "service": "Lambda"
+    }
+  },
+  "parameters": {
+    "AMPLIFY_function_lambdaHMSSendEmail_deploymentBucketName": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "lambdaHMSSendEmail"
+        }
+      ]
+    },
+    "AMPLIFY_function_lambdaHMSSendEmail_s3Key": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "lambdaHMSSendEmail"
+        }
+      ]
+    }
+  }
+}

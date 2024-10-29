@@ -74,21 +74,6 @@ span.medium {
   font-family: 'Halant', serif;
 }
 
-.menu-not-so-wide {
-  font-size: 48px;
-  line-height: 64px;
-  text-align: right;
-}
-
-.menu-wide {
-  position: absolute;
-  top: 10%;
-  right: 5vw;
-  font-size: 3vw;
-  line-height: min(min(21vh, 21vw), 75) + 'px';
-  text-align: right;
-}
-
 .montserrat-font {
   font-family: 'Montserrat', sans-serif;
 }
