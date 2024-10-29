@@ -1,8 +1,8 @@
 import { SESClient, SendEmailCommand } from '@aws-sdk/client-ses';
 
 const myRegion = process.env.MY_AWS_REGION;
-const senderEmail = process.env.REACT_APP_SENDER_EMAIL;
-const receiverEmail = process.env.REACT_APP_RECEIVER_EMAIL;
+const senderEmail = process.env.SENDER_EMAIL;
+const receiverEmail = process.env.RECEIVER_EMAIL;
 
 
 
