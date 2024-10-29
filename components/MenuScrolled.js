@@ -4,7 +4,7 @@ import { useRouter } from 'next/router';
 import React, { forwardRef } from 'react';
 
 
-const MenuScrolled = forwardRef((props, ref) => {
+const MenuScrolled = forwardRef(function MenuScrolled(props, ref) {
   const currentPath = useRouter().pathname;
 
   return (
