@@ -165,7 +165,7 @@ export default Home;
 
 // This runs at build time for the page
 export async function getStaticProps() {
-  console.log("Running getStaticProps at build time");
+  // console.log("Running getStaticProps at build time");
 
   return { props: {} };
 }

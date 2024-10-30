@@ -48,6 +48,7 @@ export default async function handler(req, res) {
       await ses.send(command);
       console.log('Email sent successfully'); // Confirm successful sending
       res.status(200).json({ message: 'Email sent successfully!' });
+      // notifyUserOfSuccess({"userEmail": email})
     } catch (error) {
       console.error('Error sending email:', error); // Log any errors
       res.status(500).json({ message: 'Failed to send email.', error: error.message });
@@ -56,4 +57,21 @@ export default async function handler(req, res) {
     console.warn('Method not allowed'); // Warn if method is not allowed
     res.status(405).json({ message: 'Method not allowed.' });
   }
+}
+
+function notifyUserOfSuccess({ userEmail }) {
+  console.log('Sending transactional email notifying website user that their message has been sent.');
+
+  const params = {
+    Source: 'auto@horganmediation.ie',
+    Destination: {
+      ToAddresses: [userEmail],
+    },
+    Message: {
+      Subject: { Data: `Contact form submission from ${name}` },
+      Body: {
+        Text: { Data: `You have received a new message from ${name} (${email}):\n\n${message}` },
+      },
+    },
+  };
 }

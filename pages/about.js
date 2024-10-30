@@ -19,9 +19,6 @@ const AboutSection1 = () => {
 const AboutSection2 = () => {
   return (
     <div className='flexbox-full-width'>
-      <div className='flex-normal'>
-        <CompanyName />
-      </div>
       <p className='flex-normal padding-normal'>
         {about.about2}
       </p>
@@ -56,6 +53,19 @@ const BlankDivider = () => {
   return (
     <div className='blank-divider'>
       &nbsp;
+    </div>
+  );
+}
+
+const AboutPortraitLayout = () => {
+  return (
+    <div
+      className='flex-normal'>
+      <CompanyName style={{
+        textAlign: 'center',
+        fontSize: '16vw',
+        lineHeight: '16vw',
+        paddingTop: '32px' }} />
     </div>
   );
 }
@@ -98,6 +108,14 @@ const AboutNarrow = () => {
 const AboutPage = () => {
   return (
     <PageWithMenu>
+      <MobileView>
+        <PortraitView>
+          <AboutPortraitLayout />
+        </PortraitView>
+        <LandscapeView>
+          Mobile landscape view
+        </LandscapeView>
+      </MobileView>
       <BrowserView>
         <WideView>
           <AboutWide />
@@ -106,14 +124,6 @@ const AboutPage = () => {
           <AboutNarrow />
         </NarrowView>
       </BrowserView>
-      <MobileView>
-        <PortraitView>
-          <AboutNarrow />
-        </PortraitView>
-        <LandscapeView>
-          Mobile landscape view
-        </LandscapeView>
-      </MobileView>
     </PageWithMenu>
   );
 }

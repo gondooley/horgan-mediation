@@ -7,8 +7,8 @@ const MenuPrompt = ({ setMenuVisible }) => {
       onClick={() => setMenuVisible(true)}
       style={{
         position: 'absolute',
-        top: '10%',
-        right: '10%',
+        top: '5%',
+        right: '5%',
         opacity: '75%',
         cursor: 'pointer',
       }}>
@@ -16,9 +16,9 @@ const MenuPrompt = ({ setMenuVisible }) => {
       <div className='menuWord'
           style={{
             fontSize: '5vw',
-            color: 'white',
+            color: '#1e1e1e',
             padding: '4px 8px 4px 8px',
-            backgroundColor: '#000000CC',
+            backgroundColor: '#efe9e4cc',
           }}>
           MENU
         </div>
