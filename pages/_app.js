@@ -6,7 +6,7 @@ import Head from 'next/head';
 function MyApp({ Component, pageProps }) {
 
   // true stops all work being made public
-  const underConstruction = false;
+  const underConstruction = true;
 
   return (
     <>
