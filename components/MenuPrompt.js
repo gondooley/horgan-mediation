@@ -1,4 +1,4 @@
-import { useViewportSize } from "./ViewportSizeHook";
+// import { useViewportSize } from "./ViewportSizeHook";
 
 
 const MenuPrompt = ({ setMenuVisible }) => {
@@ -7,26 +7,26 @@ const MenuPrompt = ({ setMenuVisible }) => {
       onClick={() => setMenuVisible(true)}
       style={{
         position: 'absolute',
-        top: '10px',
-        left: useViewportSize().screenWidth / 20,
+        top: '10%',
+        right: '10%',
         opacity: '75%',
         cursor: 'pointer',
       }}>
-      {useViewportSize().screenWidth > 600
-        ? <div className='menuWord'
+      {/* {useViewportSize().screenWidth > 600 ? */}
+      <div className='menuWord'
           style={{
-            fontSize: '25px',
+            fontSize: '5vw',
             color: 'white',
             padding: '4px 8px 4px 8px',
             backgroundColor: '#000000CC',
           }}>
           MENU
         </div>
-        : <div className='dkkBurger'>
+        {/* : <div className='dkkBurger'>
           <img src='/images/icons/burger.png' alt='burger icon'
             style={{ width: '40px', height: '40px' }} />
         </div>
-      }
+      } */}
     </div>
   );
 }

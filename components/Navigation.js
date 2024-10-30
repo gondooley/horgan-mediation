@@ -1,10 +1,10 @@
 import Link from 'next/link';
 import menuInfo from './menuInfo';
 import { useRouter } from 'next/router';
-import React, { forwardRef } from 'react';
+import React from 'react';
 
 
-const FooterNavigation = () => {
+const Navigation = () => {
   const currentPath = useRouter().pathname;
 
   return (
@@ -20,7 +20,7 @@ const FooterNavigation = () => {
             <Link href={itemInfo.item.href}>
               {itemInfo.item.text}
             </Link>
-            {index < menuInfo.length - 1 && currentPath != itemInfo.item.href && menuInfo[0].item.href != currentPath ? " - ": null}
+            {index < menuInfo.length - 1 && currentPath != itemInfo.item.href ? " - ": null}
           </div>
         );
       })}
@@ -28,4 +28,4 @@ const FooterNavigation = () => {
   );
 };
 
-export default FooterNavigation;
+export default Navigation;

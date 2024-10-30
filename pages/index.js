@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import CompanyName from '@/components/CompanyName';
-import bio from '../text/bio.json'
-import { PortraitView, LandscapeView, WideView, NarrowView } from '@/components/ViewportSizeHook';
+import about from '../text/about.json'
+import { PortraitView, LandscapeView, WideView, NarrowView, useViewportSize } from '@/components/ViewportSizeHook';
 import '../styles/index.css'
 import { BrowserView, MobileView } from 'react-device-detect';
 import MIIApprovedImage from '@/components/MIIApproved';
 import PageWithMenu from '@/components/PageWithMenu';
+import Navigation from '@/components/Navigation';
 
 const Desk = () => {
   return (
@@ -26,20 +27,39 @@ const TadghImageBrowser = () => {
 const TadghImagePortrait = () => {
   return (
     <img
-    src="/images/Tadgh.png"
-    alt="Tadgh Horgan"
-    className='tadgh tadgh-portrait'
-  />
+      src="/images/Tadgh.png"
+      alt="Tadgh Horgan"
+      className='tadgh tadgh-portrait'
+    />
   )
 }
 
-const DeskBioContainer = () => {
+const DeskAboutContainer = () => {
   return (
-    <p className='desk-bio'>
-      {bio.bio0}
+    <p className='desk-about'>
+      {about.about0}
     </p>
   );
 }
+
+// const FloatingMenu = () => {
+//   return (
+//     <div 
+//     className='montserrat-font'
+//     style={{
+//       position: 'absolute',
+//       right: '5%',
+//       top: '10%',
+//       fontSize: '36px',
+//       lineHeight: '48px'
+//     }}>
+//       About<br />
+//       Mediation<br />
+//       Family Mediation<br />
+//       Contact<br />
+//     </div>
+//   );
+// }
 
 const HomeWide = () => {
   return (
@@ -52,7 +72,7 @@ const HomeWide = () => {
         <MIIApprovedImage />
       </div>
       <TadghImageBrowser />
-      <DeskBioContainer />
+      <DeskAboutContainer />
     </div>
   );
 }
@@ -60,10 +80,11 @@ const HomeWide = () => {
 const HomeNarrow = () => {
   return (
     <>
+      <Navigation />
       <CompanyName />
       <Desk />
       <TadghImageBrowser />
-      <DeskBioContainer />
+      <DeskAboutContainer />
       <MIIApprovedImage />
     </>
   );
@@ -72,10 +93,15 @@ const HomeNarrow = () => {
 const HomePortrait = () => {
   return (
     <>
-      <CompanyName />
+      <Navigation />
+      <div style={{
+        marginTop: '3vh'
+      }}>
+        <CompanyName />
+      </div>
       <Desk />
       <TadghImagePortrait />
-      <DeskBioContainer />
+      <DeskAboutContainer />
       <MIIApprovedImage />
     </>
 
@@ -88,9 +114,38 @@ const HomeLandscape = () => {
       <CompanyName />
       <Desk />
       <TadghImageBrowser />
-      <DeskBioContainer />
+      <DeskAboutContainer />
       <MIIApprovedImage />
     </>
+  );
+}
+
+const HomeLayout = () => {
+
+  // const showFloatingMenu = useViewportSize().screenWidth > 800;
+
+  return (
+    <PageWithMenu
+    // noMenu={showFloatingMenu}
+    >
+      <MobileView>
+        <PortraitView>
+          <HomePortrait />
+        </PortraitView>
+        <LandscapeView>
+          <HomeLandscape />
+        </LandscapeView>
+      </MobileView>
+      <BrowserView>
+        <WideView>
+          <HomeWide />
+        </WideView>
+        <NarrowView>
+          <HomeNarrow />
+        </NarrowView>
+      </BrowserView>
+      {/* {showFloatingMenu ? <FloatingMenu /> : null} */}
+    </PageWithMenu>
   );
 }
 
@@ -99,24 +154,7 @@ const Home = () => {
 
   useEffect(() => {
     setClientSideLayout(
-      <PageWithMenu>
-        <MobileView>
-          <PortraitView>
-            <HomePortrait />
-          </PortraitView>
-          <LandscapeView>
-            <HomeLandscape />
-          </LandscapeView>
-        </MobileView>
-        <BrowserView>
-          <WideView>
-            <HomeWide />
-          </WideView>
-          <NarrowView>
-            <HomeNarrow />
-          </NarrowView>
-        </BrowserView>
-      </PageWithMenu>
+      <HomeLayout />
     );
   }, []);
 

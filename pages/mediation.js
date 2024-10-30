@@ -6,6 +6,7 @@ import { BrowserView, MobileView } from 'react-device-detect';
 import { LandscapeView, NarrowView, PortraitView, WideView } from '@/components/ViewportSizeHook';
 import MIIApprovedImage from '@/components/MIIApproved';
 import PageWithMenu from '@/components/PageWithMenu';
+import Navigation from '@/components/Navigation';
 
 const halantFont = Halant({ subsets: ['latin'], weight: '400' });
 const montserratFont = Montserrat({ subsets: ['latin'], weight: '300' });
@@ -255,6 +256,7 @@ const Mediation = () => {
           </NarrowView>
         </BrowserView>
         <MIIApprovedImage />
+        <Navigation />
       </PageWithMenu>
     );
   }, []);

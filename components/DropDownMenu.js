@@ -2,7 +2,6 @@ import { gsap } from "gsap/dist/gsap";
 import { useLayoutEffect, useRef } from "react";
 import menuInfo from "./menuInfo";
 import MenuItem from './DropDownMenuItem';
-import { useViewportSize } from "./ViewportSizeHook";
 import { useRouter } from "next/router";
 
 
@@ -71,21 +70,22 @@ const Menu = ({ setMenuVisible }) => {
           position: 'fixed',
           width: '100%',
           top: '0px',
-          left: '0px'
+          left: '0px',
+          overflowY: 'scroll',
         }}>
-        <div
+        <div className='halant-font'
           style={{
             width: '100%',
-            backgroundColor: '#101010',
+            backgroundColor: '#efe9e4',
             top: '0px',
             left: '0px',
+            color: '#1e1e1e',
+            textAlign: 'center',
+            paddingTop: '12px',
+            paddingBottom: '12px',
+            fontSize: '7vw'
           }}>
-          <img src='/images/logo/logo192.png' width='70px' alt='' style={{
-            margin: '10px',
-            top: '10px',
-            marginLeft: useViewportSize().screenWidth / 2,
-            transform: 'translate(-50%)',
-          }} />
+          Horgan <span style={{color: '#a17556'}}>Mediation</span> Solutions
           <img src='/images/icons/icon-exit.png'
             alt=''
             onClick={() => remove()}
@@ -93,7 +93,7 @@ const Menu = ({ setMenuVisible }) => {
             width: '24px',
             height: '24px',
             float: 'right',
-            margin: '20px'
+            margin: '12px'
           }} />
         </div>
         <div

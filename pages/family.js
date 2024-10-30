@@ -1,10 +1,11 @@
-import bio from '../text/bio.json';
+import about from '../text/about.json';
 import { Montserrat } from 'next/font/google'
 import { useEffect, useState } from 'react';
 import { BrowserView, MobileView } from 'react-device-detect';
 import { LandscapeView, NarrowView, PortraitView, WideView } from '@/components/ViewportSizeHook';
 import MIIApprovedImage from '@/components/MIIApproved';
 import PageWithMenu from '@/components/PageWithMenu';
+import Navigation from '@/components/Navigation';
 
 const montserratFont = Montserrat({ subsets: ['latin'], weight: '300' });
 
@@ -38,7 +39,7 @@ const FamilyBrowserLayout = () => {
           textAlign: 'center'
         }}>Family Mediation</h1>
         <p>
-          {bio.fam1}
+          {about.fam1}
         </p>
       </div>
       <img
@@ -118,7 +119,7 @@ const FamilyBrowserLayout = () => {
         borderRadius: '8px',
         boxShadow: '0 0 8px #1e1e1e',
       }}>
-        {bio.fam2}
+        {about.fam2}
       </p>
       <img
         src="/images/HMS05-500x450.png"
@@ -165,7 +166,7 @@ const FamilyBrowserLayout = () => {
         borderRadius: '8px',
         boxShadow: '0 0 8px #1e1e1e',
       }}>
-        {bio.fam3}
+        {about.fam3}
       </p>
       <img
         src="/images/HMS07-500x252.png"
@@ -212,6 +213,7 @@ const Family = () => {
           </NarrowView>
         </BrowserView>
         <MIIApprovedImage />
+        <Navigation />
       </>
     );
   }, []);

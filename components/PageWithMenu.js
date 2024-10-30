@@ -18,6 +18,8 @@ const PageWithMenu = ({ children, noMenu }) => {
 
   useGSAP(() => {
 
+    console.log("When I'm fixing something with the scroll menu, I'll start here");
+
     var firstLoad = true;
 
     ScrollTrigger.create({
@@ -35,6 +37,9 @@ const PageWithMenu = ({ children, noMenu }) => {
             // necessary so the scroll menu will not appear the moment you
             // return to a scrolled page
             if (!firstLoad) {
+
+              console.log("MenuScroll should appear!")
+
               gsap.to(menuScrolledRef.current, {
                 yPercent: 100,
                 duration: 0.2,

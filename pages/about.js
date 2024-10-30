@@ -1,28 +1,29 @@
 import CompanyName from '@/components/CompanyName';
-import bio from '../text/bio.json'
+import about from '../text/about.json'
 import { LandscapeView, NarrowView, PortraitView, WideView } from '@/components/ViewportSizeHook';
 import { BrowserView, MobileView } from 'react-device-detect';
 import PageWithMenu from '@/components/PageWithMenu';
+import Navigation from '@/components/Navigation';
 
-const BioSection1 = () => {
+const AboutSection1 = () => {
   return (
     <div className='flexbox-full-width' id="about">
       <div className='flex-normal padding-normal'>
-        {bio.bio1}
+        {about.about1}
       </div>
       <div className='flex-normal background-image-bridge' />
     </div>
   );
 }
 
-const BioSection2 = () => {
+const AboutSection2 = () => {
   return (
     <div className='flexbox-full-width'>
       <div className='flex-normal'>
         <CompanyName />
       </div>
       <p className='flex-normal padding-normal'>
-        {bio.bio2}
+        {about.about2}
       </p>
       <img
         src="/images/mii-approved-2024-outer-alpha.png"
@@ -33,17 +34,19 @@ const BioSection2 = () => {
   );
 }
 
-const BioSection3 = () => {
+const AboutSection3 = () => {
   return (
     <div>
       <p className='padding-normal margin-double'>
-        {bio.bio3}
+        {about.about3}
       </p>
       <BlankDivider />
       <img
         src="/images/med2-1920x960.png"
         alt="shaking hands"
         className='margin-double'
+        width='80%'
+        height='auto'
       />
     </div>
   );
@@ -51,21 +54,25 @@ const BioSection3 = () => {
 
 const BlankDivider = () => {
   return (
-    <div className='blank-divider' />
+    <div className='blank-divider'>
+      &nbsp;
+    </div>
   );
 }
 
 const AboutWide = () => {
   return (
     <div>
-      <BioSection1 />
+      <AboutSection1 />
       <BlankDivider />
       <BlankDivider />
-      <BioSection2 />
+      <AboutSection2 />
       <BlankDivider />
-      <BioSection3 />
+      <AboutSection3 />
       <BlankDivider />
       <BlankDivider />
+      <BlankDivider />
+      <Navigation />
       <BlankDivider />
     </div>
   );
@@ -74,14 +81,21 @@ const AboutWide = () => {
 const AboutNarrow = () => {
   return (
     <>
-    <BioSection1 />
-    <BioSection2 />
-    <BioSection3 /> 
+      <AboutSection1 />
+      <AboutSection2 />
+      <AboutSection3 />
+
+      <BlankDivider />
+      <BlankDivider />
+      <BlankDivider />
+      <Navigation />
+      <BlankDivider />
+      <BlankDivider />
     </>
   );
 }
 
-const Bio = () => {
+const AboutPage = () => {
   return (
     <PageWithMenu>
       <BrowserView>
@@ -94,7 +108,7 @@ const Bio = () => {
       </BrowserView>
       <MobileView>
         <PortraitView>
-          Mobile portrait view
+          <AboutNarrow />
         </PortraitView>
         <LandscapeView>
           Mobile landscape view
@@ -104,4 +118,4 @@ const Bio = () => {
   );
 }
 
-export default Bio;
+export default AboutPage;

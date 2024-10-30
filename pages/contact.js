@@ -1,5 +1,5 @@
 import ContactForm from "@/components/ContactForm";
-import FooterNavigation from "@/components/FooterNavigation";
+import Navigation from "@/components/Navigation";
 import MIIApprovedImage from "@/components/MIIApproved";
 import PageWithMenu from "@/components/PageWithMenu";
 import { useEffect, useState } from "react";
@@ -22,7 +22,7 @@ const Contact = () => {
         }}>
           <MIIApprovedImage />
         </div>
-        <FooterNavigation />
+        <Navigation />
       </PageWithMenu>
     );
   }, []);
