@@ -2,11 +2,14 @@ import YourAppDotIeFooter from '@/components/YourAppDotIEFooter';
 import '../app/globals.css';
 import HoldingPage from '@/components/UnderConstruction';
 import Head from 'next/head';
+import { useRouter } from 'next/router';
 
 function MyApp({ Component, pageProps }) {
 
   // true stops all work being made public
-  const underConstruction = true;
+  // useRouter().pathname != '/contact'; allows one page to be live
+  // false allows the whole site to be live
+  const underConstruction = useRouter().pathname != '/contact';
 
   return (
     <>
