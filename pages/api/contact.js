@@ -1,21 +1,23 @@
-import { SESClient, SendEmailCommand } from '@aws-sdk/client-ses';
-
 // const myRegion = process.env.MY_AWS_REGION || 'eu-west-1';
 // const senderEmail = process.env.REACT_APP_SENDER_EMAIL || 'ger@yourapp.ie';
 // const receiverEmail = process.env.REACT_APP_RECEIVER_EMAIL || 'for_tadgh@yourapp.ie';
+
+import { SESClient, SendEmailCommand } from '@aws-sdk/client-ses';
+import { STSClient, GetCallerIdentityCommand } from '@aws-sdk/client-sts';
+
 
 const myRegion = process.env.MY_AWS_REGION;
 const senderEmail = process.env.SENDER_EMAIL;
 const receiverEmail = process.env.RECEIVER_EMAIL;
 
-
-// Initialize SES client
-// const ses = new SESClient({ region: myRegion });
-
 const ses = new SESClient({ region: myRegion });
 
 export default async function handler(req, res) {
   console.log('API Route Invoked'); // Check if the API route is hit
+
+  // Call the checkSTS function to test
+  checkSTS();
+
   console.log('My region: ', myRegion);
   console.log(`Request Method: ${req.method}`); // Log the request method
 
@@ -75,3 +77,20 @@ function notifyUserOfSuccess({ userEmail }) {
     },
   };
 }
+
+
+const checkSTS = async () => {
+    const stsClient = new STSClient({ region: process.env.MY_AWS_REGION });
+
+    const command = new GetCallerIdentityCommand({});
+
+    try {
+        const response = await stsClient.send(command);
+        console.log('Caller identity:', response);
+    } catch (error) {
+        console.error('Error checking STS permissions:', error.message);
+    }
+};
+
+
+
