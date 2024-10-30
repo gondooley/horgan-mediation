@@ -143,7 +143,7 @@ const HeadingWithSymbol = ({ children }) => {
       flexDirection: 'row',
       justifyContent: 'flex-start',
       alignItems: 'center',
-      marginTop: '48px',
+      marginTop: '32px',
     }}>
       {children}
     </div>
@@ -170,8 +170,8 @@ const MediationBrowserLayout = ({ isNarrow }) => {
         style={{
           fontSize: '16px',
           lineHeight: '28px',
-          marginLeft: '20%',
-          marginRight: '20%'
+          marginLeft: '15%',
+          marginRight: '15%'
         }}>
         <HeadingWithSymbol>
           <MediationImage />
@@ -228,7 +228,6 @@ const MediationBrowserLayout = ({ isNarrow }) => {
           Once both parties have arrived at agreement and are happy to conclude the process, the Mediator will summarise all the relevant components into a final Mediation Agreement. This will reflect the parties’ discussions and the compromises reached. Both parties are free to seek legal advice before signing the final Mediation agreement. As laid out in the Mediation Act of 2017, the default position of a signed mediated agreement, is that it becomes legally binding, unless the parties requested otherwise at the beginning of the Mediation process.
         </p>
       </div>
-      <SteppingStones />
     </div>
   );
 }
@@ -241,7 +240,7 @@ const Mediation = () => {
       <PageWithMenu>
         <MobileView>
           <PortraitView>
-            Mobile portrait view
+            <MediationBrowserLayout isNarrow='true' />
           </PortraitView>
           <LandscapeView>
             <MediationBrowserLayout />
@@ -254,9 +253,23 @@ const Mediation = () => {
           <NarrowView>
             <MediationBrowserLayout isNarrow='true' />
           </NarrowView>
-        </BrowserView>
-        <MIIApprovedImage />
-        <Navigation />
+        </BrowserView>    
+        <div style={{
+          display: 'flex',
+          flexDirection: 'row',
+          justifyContent: 'center',
+          alignItems: 'center',
+          marginLeft: '5%',
+          marginRight: '5%',
+          marginBottom: '24px',
+        }}>
+          <MIIApprovedImage style={{
+            height: '150px',
+            width: '150px',
+          }}/>
+          <Navigation />
+        </div>
+        <SteppingStones />
       </PageWithMenu>
     );
   }, []);

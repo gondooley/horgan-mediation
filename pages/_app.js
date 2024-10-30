@@ -15,9 +15,10 @@ function MyApp({ Component, pageProps }) {
         : <div className="page-wrapper">
             <Head>
               <title>Horgan Mediation Solutions</title>
+              <link rel="icon" href="/favicon.ico" sizes="any" />
             </Head>
             <Component {...pageProps} />
-            <YourAppDotIeFooter />
+            {/* <YourAppDotIeFooter /> */}
         </div>
       }
     </>);

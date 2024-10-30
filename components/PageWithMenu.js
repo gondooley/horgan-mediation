@@ -53,7 +53,7 @@ const PageWithMenu = ({ children, noMenu }) => {
   });
 
   return (
-      <div ref={topRef} className='topRefLocation' >
+      <div ref={topRef} className='top-ref-location' >
         {children}
         {noMenu ? null :
           <>

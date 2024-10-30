@@ -19,6 +19,7 @@ const MenuItem = ({ href, text }) => {
           backgroundColor: mouseHovering ? '#303030' : '#101010',
           padding: '12px',
           paddingLeft: '48px',
+          cursor: 'pointer',
         }}>
         <Link href={href}
         style={{

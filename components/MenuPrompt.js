@@ -7,8 +7,8 @@ const MenuPrompt = ({ setMenuVisible }) => {
       onClick={() => setMenuVisible(true)}
       style={{
         position: 'absolute',
-        top: '5%',
-        right: '5%',
+        top: '5vh',
+        right: '5vw',
         opacity: '75%',
         cursor: 'pointer',
       }}>

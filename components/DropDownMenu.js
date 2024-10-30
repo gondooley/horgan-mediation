@@ -1,8 +1,9 @@
+import React, { useLayoutEffect, useRef } from "react";
 import { gsap } from "gsap/dist/gsap";
-import { useLayoutEffect, useRef } from "react";
 import menuInfo from "./menuInfo";
 import MenuItem from './DropDownMenuItem';
 import { useRouter } from "next/router";
+import Image from "next/image";
 
 
 const Menu = ({ setMenuVisible }) => {
@@ -21,31 +22,31 @@ const Menu = ({ setMenuVisible }) => {
         scaleY: '1',
         duration: 0.5,
       });
-      gsap.fromTo(
-        dimmerRef.current, {
-        opacity: '0',
-      },
-        {
-          opacity: '0.5',
-          duration: 0.5,
-        });
-      
+    gsap.fromTo(
+      dimmerRef.current, {
+      opacity: '0',
+    },
+      {
+        opacity: '0.5',
+        duration: 0.5,
+      });
+
     // eslint-disable-next-line
   }, []);
 
   function remove() {
     gsap.to(
       menuRef.current, {
-        scaleY: '0',
-        duration: 0.5,
-        transformOrigin: 'top',
-      }
+      scaleY: '0',
+      duration: 0.5,
+      transformOrigin: 'top',
+    }
     );
     gsap.to(
       dimmerRef.current, {
-        opacity: '0',
-        duration: 0.5,
-      }
+      opacity: '0',
+      duration: 0.5,
+    }
     ).then(() => setMenuVisible(false));
   }
 
@@ -85,16 +86,21 @@ const Menu = ({ setMenuVisible }) => {
             paddingBottom: '12px',
             fontSize: '7vw'
           }}>
-          Horgan <span style={{color: '#a17556'}}>Mediation</span> Solutions
-          <img src='/images/icons/icon-exit.png'
-            alt=''
-            onClick={() => remove()}
+          Horgan <span style={{ color: '#a17556' }}>Mediation</span> Solutions
+          <div onClick={() => remove()}
             style={{
-            width: '24px',
-            height: '24px',
-            float: 'right',
-            margin: '12px'
-          }} />
+              position: 'relative',
+              width: '24px',
+              height: '24px',
+              float: 'right',
+              margin: '12px',
+              cursor: 'pointer',
+            }}>
+            <Image
+              src='/images/icons/icon-exit.png'
+              alt='exit menu icon'
+              fill={true} />
+          </div>
         </div>
         <div
           style={{

@@ -17,10 +17,13 @@ const Navigation = () => {
           <div style={{
             display: 'inline',
           }} key={index}>
-            <Link href={itemInfo.item.href}>
+            <Link href={itemInfo.item.href} style={{
+              minHeight: '48px',
+              fontSize: '20px',
+            }}>
               {itemInfo.item.text}
             </Link>
-            {index < menuInfo.length - 1 && currentPath != itemInfo.item.href ? " - ": null}
+            {index < menuInfo.length - 1 && currentPath != itemInfo.item.href ? " - " : null}
           </div>
         );
       })}
