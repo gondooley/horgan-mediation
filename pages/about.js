@@ -144,7 +144,10 @@ const AboutWide = () => {
   return (
     <div>
       <Navigation />
-      <CompanyName wide={true} />
+      <CompanyName wide style={{
+        marginLeft: '4vw',
+        marginTop: '24px'
+      }} />
       <BlankDivider />
       <AboutSection1 />
       <AboutSection2 />
@@ -189,7 +192,7 @@ const AboutPage = () => {
           <AboutWide />
         </WideView>
         <NarrowView>
-        <AboutPortraitLayout />
+          <AboutPortraitLayout />
         </NarrowView>
       </BrowserView>
     </PageWithMenu>
