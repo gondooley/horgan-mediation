@@ -49,8 +49,8 @@ const ProcessElement = ({ image, heading, text, isNarrow }) => {
     return (
       <div className='bigger-icon'
         style={{
-          minWidth: '100px',
-          minHeight: '100px',
+          width: '100px',
+          height: '100px',
           margin: '24px',
           flex: 1,
         }}>
