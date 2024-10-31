@@ -1,53 +1,110 @@
-import ContactForm from "@/components/ContactForm";
 import Navigation from "@/components/Navigation";
-import MIIApprovedImage from "@/components/MIIApproved";
 import PageWithMenu from "@/components/PageWithMenu";
 import { useEffect, useState } from "react";
 import MIIWithNavFooter from "@/components/MIIWIthNavFooter";
+import { LandscapeView, PortraitView } from "@/components/ViewportSizeHook";
+import MIIApprovedImage from "@/components/MIIApproved";
 
 const Contact = () => {
   const [clientSideLayout, setClientSideLayout] = useState(null);
 
-  useEffect(() => {
-    setClientSideLayout(
-      <PageWithMenu>
+  const Narrow = () => {
+    return (
+      <div style={{
+        minHeight: '100vh',
+      }}>
+        <Navigation />
         <div style={{
-          minHeight: '100vh',
+          textAlign: 'center',
+          margin: '0 5vh 0 5vh',
         }}>
-          <Navigation />
+          <h1 style={{
+            marginTop: '20vh',
+          }}>Contact Horgan Mediation Solutions</h1>
           <div style={{
-            textAlign: 'center',
-            margin: '0 5vh 0 5vh',
+            fontSize: '24px',
+            marginTop: '24px',
           }}>
-            <h1 style={{
-              marginTop: '32px',
-            }}>Contact Horgan Mediation Solutions</h1>
-            <div style={{
-              fontSize: '24px',
-              marginTop: '24px',
+            <p style={{
+              margin: '64px 0 64px 0'
             }}>
-              <p style={{
-                margin: '64px 0 64px 0'
-              }}>
-                <a href="mailto:info@horganmediation.ie">info@horganmediation.ie</a>
-              </p>
-              <p>
-                <a href="tel:+353851817886">(085) 181 7886</a>
-              </p>
-            </div>
-            {/* <p style={{
+              <a href="mailto:info@horganmediation.ie">info@horganmediation.ie</a>
+            </p>
+            <p>
+              <a href="tel:+353851817886">(085) 181 7886</a>
+            </p>
+          </div>
+          {/* <p style={{
             marginTop: '24px',
             fontSize: '20px'
           }}>
             Alternatively you can send a message directly with this form:
             </p> */}
-            {/* <ContactForm /> */}
-          </div>
-          <MIIWithNavFooter style={{
-            position: 'absolute',
-            bottom: '50px',
-          }} />
+          {/* <ContactForm /> */}
         </div>
+        <MIIWithNavFooter style={{
+          position: 'absolute',
+          bottom: '50px',
+        }} />
+      </div>
+    );
+  }
+
+  const Wide = () => {
+    return (
+      <div style={{
+        minHeight: '100vh',
+      }}>
+        <Navigation />
+        <div style={{
+          textAlign: 'center',
+          margin: '0 5vh 0 5vh',
+        }}>
+          <h1 style={{
+            marginTop: '20vh',
+          }}>Contact Horgan Mediation Solutions</h1>
+          <div style={{
+            fontSize: '24px'
+          }}>
+            <p style={{
+              margin: '32px 0 32px 0'
+            }}>
+              <a href="mailto:info@horganmediation.ie">info@horganmediation.ie</a>
+            </p>
+            <p>
+              <a href="tel:+353851817886">(085) 181 7886</a>
+            </p>
+          </div>
+          {/* <p style={{
+            marginTop: '24px',
+            fontSize: '20px'
+          }}>
+            Alternatively you can send a message directly with this form:
+            </p> */}
+          {/* <ContactForm /> */}
+        </div>
+        <MIIApprovedImage style={{
+          position: 'absolute',
+          top: '2vh',
+          left: '2vh',
+          width: '100px',
+          height: '100px'
+
+        }}/>
+      </div>
+    );
+  }
+
+  useEffect(() => {
+    setClientSideLayout(
+      <PageWithMenu>
+        
+          <PortraitView>
+            <Narrow />
+          </PortraitView>
+          <LandscapeView>
+            <Wide />
+          </LandscapeView>
       </PageWithMenu>
     );
   }, []);

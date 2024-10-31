@@ -6,6 +6,7 @@ import { LandscapeView, NarrowView, PortraitView, WideView } from '@/components/
 import PageWithMenu from '@/components/PageWithMenu';
 import MIIWithNavFooter from '@/components/MIIWIthNavFooter';
 import Navigation from '@/components/Navigation';
+import CompanyName from '@/components/CompanyName';
 
 const montserratFont = Montserrat({ subsets: ['latin'], weight: '300' });
 
@@ -234,93 +235,174 @@ const FamText3 = () => {
 
 const FamText4 = () => {
   return (
-    <p style={{
-      margin: '0 10vw 0 10vw',
+    <div style={{
+      display: 'flex',
+      justifyContent: 'center'
     }}>
-      {about.fam4}
-    </p>
+      <p style={{
+        margin: '0 10vw 0 10vw',
+        maxWidth: '650px',
+      }}>
+        {about.fam4}
+      </p>
+    </div>
+  );
+}
+
+const ImageContainer = ({ children }) => {
+  return (
+    <div style={{
+      width: '250px',
+      margin: '24px'
+    }}>
+      {children}
+    </div>
   );
 }
 
 const CoupleArguingImage = () => {
   return (
-    <img alt="couple arguing" src="/images/family-stock/argue.png" width="100%" height="auto" />
+    <ImageContainer>
+      <img alt="couple arguing" src="/images/family-stock/argue.png" width="100%" height="auto" />
+    </ImageContainer>
   );
 }
 const WomanComfortingChildImage = () => {
   return (
-    <img alt="woman comforting child" src="/images/family-stock/comfort.jpg" width="100%" height="auto" />
+    <ImageContainer>
+      <img alt="woman comforting child" src="/images/family-stock/comfort.jpg" width="100%" height="auto" />
+    </ImageContainer>
   );
 }
 const InFrontOfChildrenImage = () => {
   return (
-    <img alt="couple arguing in front of children" src="/images/family-stock/four-family.png" width="100%" height="auto" />
+    <ImageContainer>
+      <img alt="couple arguing in front of children" src="/images/family-stock/four-family.png" width="100%" height="auto" />
+    </ImageContainer>
   );
 }
 const TwoUpsetWomenImage = () => {
   return (
-    <img alt="two upset women" src="/images/family-stock/upset.png" width="100%" height="auto" />
+    <ImageContainer>
+      <img alt="two upset women" src="/images/family-stock/upset.png" width="100%" height="auto" />
+    </ImageContainer>
   );
 }
 
-const FamilyMobilePortraitLayout = () => {
+const TopSection = () => {
+  return (
+    <>
+      <PortraitView>
+        <FamText0 />
+        <div style={{
+          display: 'flex',
+          justifyContent: 'center'
+        }}>
+          <InFrontOfChildrenImage />
+        </div>
+        <FamText1 />
+        <div style={{
+          display: 'flex',
+          justifyContent: 'center'
+        }}>
+          <CoupleArguingImage />
+        </div>
+      </PortraitView>
+      <LandscapeView>
+        <div style={{
+          display: 'flex',
+          justifyContent: 'space-around',
+          alignItems: 'center'
+        }}>
+          <div style={{
+            flex: '1',
+            display: 'flex',
+            justifyContent: 'center'
+          }}>
+            <InFrontOfChildrenImage />
+          </div>
+          <div style={{
+            flex: '1',
+          }}>
+            <p>{about.fam0}</p>
+            <p>&nbsp;</p>
+            <p>{about.fam1}</p>
+          </div>
+          <div style={{
+            flex: '1',
+            display: 'flex',
+            justifyContent: 'center'
+          }}>
+            <WomanComfortingChildImage />
+          </div>
+        </div>
+      </LandscapeView>
+    </>
+  );
+}
+
+const SideBySide = ({ left, right }) => {
+  return (
+    <div style={{
+      display: 'flex',
+      justifyContent: 'space-around',
+      alignItems: 'center',
+      margin: '0 10vw 0 10vw'
+    }}>
+      <div>
+        {left}
+      </div>
+      <div>
+        {right}
+      </div>
+    </div>
+  );
+}
+
+const BottomSection = () => {
+  return (
+    <>
+      <PortraitView>
+        <FamText2 />
+        <div style={{
+          display: 'flex',
+          justifyContent: 'center'
+        }}>
+          <TwoUpsetWomenImage />
+        </div>
+        <FamText3 />
+        <div style={{
+          display: 'flex',
+          justifyContent: 'center'
+        }}>
+          <WomanComfortingChildImage />
+        </div>
+      </PortraitView>
+      <LandscapeView>
+        <SideBySide
+          left={<CoupleArguingImage />}
+          right={about.fam2} />
+        <SideBySide
+          left={about.fam3}
+          right={<TwoUpsetWomenImage />} />
+      </LandscapeView>
+    </>
+  );
+}
+
+const FamilyLayout = () => {
   return (
     <div>
       <Navigation />
       <Heading />
-      <FamText0 />
-      <div style={{
-        display: 'flex',
-        justifyContent: 'center'
-      }}>
-        <div style={{
-          width: '250px',
-          margin: '24px'
-        }}>
-          <InFrontOfChildrenImage />
-        </div>
-      </div>
-      <FamText1 />
-      <div style={{
-        display: 'flex',
-        justifyContent: 'center'
-      }}>
-        <div style={{
-          width: '250px',
-          margin: '24px'
-        }}>
-          <CoupleArguingImage />
-        </div>
-      </div>
-      <FamText2 />
-      <div style={{
-        display: 'flex',
-        justifyContent: 'center'
-      }}>
-        <div style={{
-          width: '250px',
-          margin: '24px'
-        }}>
-          <TwoUpsetWomenImage />
-        </div>
-      </div>
-      <FamText3 />
-      <div style={{
-        display: 'flex',
-        justifyContent: 'center'
-      }}>
-        <div style={{
-          width: '250px',
-          margin: '24px'
-        }}>
-          <WomanComfortingChildImage />
-        </div>
-      </div>
+      <TopSection />
+      <BottomSection />
       <FamText4 />
       <div style={{
         minHeight: '32px',
-        width: '100%'}}>
-          &nbsp;
+        width: '100%'
+      }}>
+        &nbsp;
       </div>
     </div>
   );
@@ -332,23 +414,17 @@ const Family = () => {
   useEffect(() => {
     setClientSideLayout(
       <PageWithMenu>
-        <MobileView>
-          <PortraitView>
-            <FamilyMobilePortraitLayout />
-          </PortraitView>
-          <LandscapeView>
-            Mobile landscape view
-          </LandscapeView>
-        </MobileView>
-        <BrowserView>
-          <WideView>
-            <FamilyBrowserLayout />
-          </WideView>
-          <NarrowView>
-            Browser narrow view
-          </NarrowView>
-        </BrowserView>
+        <FamilyLayout />
         <MIIWithNavFooter />
+        <div style={{
+          width: '100vw',
+          display: 'flex',
+          flexDirection: 'row',
+          justifyContent: 'center',
+          alignItems: 'center',
+          backgroundColor: 'yellow'
+        }}>
+        </div>
       </PageWithMenu>
     );
   }, []);

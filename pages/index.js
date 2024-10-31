@@ -90,6 +90,7 @@ const DeskAboutContainer = ({ style }) => {
 const HomeWide = () => {
   return (
     <div className='home-page'>
+      <Navigation />
       <div className='float'>
         <CompanyName />
       </div>
@@ -103,22 +104,10 @@ const HomeWide = () => {
   );
 }
 
-const HomeNarrow = () => {
-  return (
-    <>
-      <Navigation />
-      <CompanyName />
-      <Desk />
-      <TadghImageBrowser />
-      <DeskAboutContainer />
-      <MIIApprovedImage />
-    </>
-  );
-}
 
 const HomePortrait = () => {
   return (
-    <>
+    <div className='home-page'>
       <Navigation />
       <div style={{
         display: 'flex',
@@ -129,8 +118,8 @@ const HomePortrait = () => {
           textAlign: 'center'
         }}>
           <CompanyName style={{
-            fontSize: '6vh',
-            lineHeight: '8vh'
+            fontSize: '48px',
+            lineHeight: '64px'
           }} />
         </div>
       </div>
@@ -145,7 +134,7 @@ const HomePortrait = () => {
       }}>
         <MIIApprovedImage />
       </div>
-    </>
+    </div>
 
   );
 }
@@ -163,6 +152,7 @@ const HomeLandscape = () => {
         top: '5%',
         fontSize: '16vh',
         lineHeight: '18vh',
+        
       }}/>
       <Desk 
       textContainerWidth='50%'
@@ -202,13 +192,13 @@ const HomeLayout = () => {
         <LandscapeView>
           <HomeLandscape />
         </LandscapeView>
-      </MobileView>
+        </MobileView>
       <BrowserView>
         <WideView>
           <HomeWide />
         </WideView>
         <NarrowView>
-          <HomeNarrow />
+          <HomePortrait />
         </NarrowView>
       </BrowserView>
     </PageWithMenu>

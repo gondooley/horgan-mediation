@@ -122,7 +122,7 @@ const AboutPortraitLayout = () => {
       <AboutText1 />
 
       <BridgeImage style={{
-        minHeight: '120px',
+        minHeight: '140px',
         margin: '0 10vw 0 10vw',
       }} />
       <AboutText2 />
@@ -189,7 +189,7 @@ const AboutPage = () => {
           <AboutWide />
         </WideView>
         <NarrowView>
-          <AboutNarrow />
+        <AboutPortraitLayout />
         </NarrowView>
       </BrowserView>
     </PageWithMenu>

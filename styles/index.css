@@ -3,10 +3,10 @@ img.tadgh {
 }
 
 img.tadgh-portrait {
-  height: 50%;
+  height: 400px;
   width: auto;
-  top: 35%;
-  right: -30%;
+  bottom: 15%;
+  right: -100px;
 }
 
 img.tadgh-browser {
@@ -59,7 +59,7 @@ p.desk-bio {
 
 .flexbox-full-width {
   display: flex;
-  justify-content: start;
+  justify-content: flex-start;
   align-items: stretch;
 }
 
@@ -79,9 +79,10 @@ p.desk-bio {
 
 .on-desk {
   position: absolute;
-  left: 10%;
-  top: 80%;
-  transform: translateY(-42%);
+  left: 8%;
+  bottom: 10%;
+  width: 250px;
+  height: 250px;
 }
 
 .padding-normal {
