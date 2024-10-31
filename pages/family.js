@@ -3,15 +3,25 @@ import { Montserrat } from 'next/font/google'
 import { useEffect, useState } from 'react';
 import { BrowserView, MobileView } from 'react-device-detect';
 import { LandscapeView, NarrowView, PortraitView, WideView } from '@/components/ViewportSizeHook';
-import MIIApprovedImage from '@/components/MIIApproved';
 import PageWithMenu from '@/components/PageWithMenu';
+import MIIWithNavFooter from '@/components/MIIWIthNavFooter';
 import Navigation from '@/components/Navigation';
 
 const montserratFont = Montserrat({ subsets: ['latin'], weight: '300' });
 
+const Heading = () => {
+  return (
+    <h1 style={{
+      margin: '56px 0 24px 0',
+      textAlign: 'center'
+    }}>
+      Family Mediation
+    </h1>
+  );
+}
+
 const FamilyBrowserLayout = () => {
   return (
-    <PageWithMenu>
     <div
       className={montserratFont.className}
       style={{
@@ -34,10 +44,7 @@ const FamilyBrowserLayout = () => {
         borderRadius: '8px',
         boxShadow: '0 0 8px #1e1e1e',
       }}>
-        <h1 style={{
-          marginTop: '0px',
-          textAlign: 'center'
-        }}>Family Mediation</h1>
+        <Heading />
         <p>
           {about.fam1}
         </p>
@@ -179,14 +186,143 @@ const FamilyBrowserLayout = () => {
           left: '50%',
           transform: 'translateX(-50%)'
         }}
-      /> 
-      <img alt="couple arguing" src="/images/family-stock/argue.png" width="300" height="auto" />
-      <img alt="woman comforting child" src="/images/family-stock/comfort.jpg" width="300" height="auto" />
-      <img alt="couple arguing in front of children" src="/images/family-stock/four-family.png" width="300" height="auto" />
-      <img alt="two upset women" src="/images/family-stock/upset.png" width="300" height="auto" />
+      />
 
     </div>
-    </PageWithMenu>
+  );
+}
+
+const FamText0 = () => {
+  return (
+    <p style={{
+      margin: '0 10vw 0 10vw',
+    }}>
+      {about.fam0}
+    </p>
+  );
+}
+
+const FamText1 = () => {
+  return (
+    <p style={{
+      margin: '0 10vw 0 10vw',
+    }}>
+      {about.fam1}
+    </p>
+  );
+}
+
+const FamText2 = () => {
+  return (
+    <p style={{
+      margin: '0 10vw 0 10vw',
+    }}>
+      {about.fam2}
+    </p>
+  );
+}
+
+const FamText3 = () => {
+  return (
+    <p style={{
+      margin: '0 10vw 0 10vw',
+    }}>
+      {about.fam3}
+    </p>
+  );
+}
+
+const FamText4 = () => {
+  return (
+    <p style={{
+      margin: '0 10vw 0 10vw',
+    }}>
+      {about.fam4}
+    </p>
+  );
+}
+
+const CoupleArguingImage = () => {
+  return (
+    <img alt="couple arguing" src="/images/family-stock/argue.png" width="100%" height="auto" />
+  );
+}
+const WomanComfortingChildImage = () => {
+  return (
+    <img alt="woman comforting child" src="/images/family-stock/comfort.jpg" width="100%" height="auto" />
+  );
+}
+const InFrontOfChildrenImage = () => {
+  return (
+    <img alt="couple arguing in front of children" src="/images/family-stock/four-family.png" width="100%" height="auto" />
+  );
+}
+const TwoUpsetWomenImage = () => {
+  return (
+    <img alt="two upset women" src="/images/family-stock/upset.png" width="100%" height="auto" />
+  );
+}
+
+const FamilyMobilePortraitLayout = () => {
+  return (
+    <div>
+      <Navigation />
+      <Heading />
+      <FamText0 />
+      <div style={{
+        display: 'flex',
+        justifyContent: 'center'
+      }}>
+        <div style={{
+          width: '250px',
+          margin: '24px'
+        }}>
+          <InFrontOfChildrenImage />
+        </div>
+      </div>
+      <FamText1 />
+      <div style={{
+        display: 'flex',
+        justifyContent: 'center'
+      }}>
+        <div style={{
+          width: '250px',
+          margin: '24px'
+        }}>
+          <CoupleArguingImage />
+        </div>
+      </div>
+      <FamText2 />
+      <div style={{
+        display: 'flex',
+        justifyContent: 'center'
+      }}>
+        <div style={{
+          width: '250px',
+          margin: '24px'
+        }}>
+          <TwoUpsetWomenImage />
+        </div>
+      </div>
+      <FamText3 />
+      <div style={{
+        display: 'flex',
+        justifyContent: 'center'
+      }}>
+        <div style={{
+          width: '250px',
+          margin: '24px'
+        }}>
+          <WomanComfortingChildImage />
+        </div>
+      </div>
+      <FamText4 />
+      <div style={{
+        minHeight: '32px',
+        width: '100%'}}>
+          &nbsp;
+      </div>
+    </div>
   );
 }
 
@@ -195,10 +331,10 @@ const Family = () => {
 
   useEffect(() => {
     setClientSideLayout(
-      <>
+      <PageWithMenu>
         <MobileView>
           <PortraitView>
-            Mobile portrait view
+            <FamilyMobilePortraitLayout />
           </PortraitView>
           <LandscapeView>
             Mobile landscape view
@@ -212,9 +348,8 @@ const Family = () => {
             Browser narrow view
           </NarrowView>
         </BrowserView>
-        <MIIApprovedImage />
-        <Navigation />
-      </>
+        <MIIWithNavFooter />
+      </PageWithMenu>
     );
   }, []);
 

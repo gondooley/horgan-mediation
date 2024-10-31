@@ -66,8 +66,12 @@ img.MII-approval {
   height: 100%;
 }
 
-span.medium {
+.medium {
   color: var(--medium);
+}
+
+.light {
+  color: var(--light);
 }
 
 .halant-font {

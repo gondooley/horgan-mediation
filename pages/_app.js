@@ -9,7 +9,7 @@ function MyApp({ Component, pageProps }) {
   // true stops all work being made public
   // useRouter().pathname != '/contact'; allows one page to be live
   // false allows the whole site to be live
-  const underConstruction = useRouter().pathname != '/contact';
+  const underConstruction = false;
 
   return (
     <>

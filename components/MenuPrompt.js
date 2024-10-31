@@ -19,6 +19,7 @@ const MenuPrompt = ({ setMenuVisible }) => {
             color: '#1e1e1e',
             padding: '4px 8px 4px 8px',
             backgroundColor: '#efe9e4cc',
+            border: '2px solid #1e1e1e'
           }}>
           MENU
         </div>

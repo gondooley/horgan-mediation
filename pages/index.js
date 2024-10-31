@@ -8,9 +8,19 @@ import MIIApprovedImage from '@/components/MIIApproved';
 import PageWithMenu from '@/components/PageWithMenu';
 import Navigation from '@/components/Navigation';
 
-const Desk = () => {
+const Desk = ({ style, textContainerWidth }) => {
   return (
-    <div className='desk' />
+    <div className='desk' style={{
+      display: 'flex',
+      flexDirection: 'column',
+      justifyContent: 'end',
+      paddingBottom: '16px',
+      ...style
+    }}>
+      <DeskAboutContainer style={{
+        maxWidth: textContainerWidth,
+      }}/>
+    </div>
   );
 }
 
@@ -34,9 +44,25 @@ const TadghImagePortrait = () => {
   )
 }
 
-const DeskAboutContainer = () => {
+const TadghImage = ({ style }) => {
   return (
-    <p className='desk-about'>
+    <img
+      src="/images/Tadgh.png"
+      alt="Tadgh Horgan"
+      style={{
+        width: '100%',
+        height: '100%',
+        ...style
+      }}
+    />
+  )
+}
+
+const DeskAboutContainer = ({ style }) => {
+  return (
+    <p className='desk-about light' style={{
+      ...style
+    }}>
       {about.about0}
     </p>
   );
@@ -95,14 +121,30 @@ const HomePortrait = () => {
     <>
       <Navigation />
       <div style={{
-        marginTop: '3vh'
+        display: 'flex',
+        justifyContent: 'center',
       }}>
-        <CompanyName />
+        <div style={{
+          marginTop: '2vh',
+          textAlign: 'center'
+        }}>
+          <CompanyName style={{
+            fontSize: '6vh',
+            lineHeight: '8vh'
+          }} />
+        </div>
       </div>
       <Desk />
       <TadghImagePortrait />
-      <DeskAboutContainer />
-      <MIIApprovedImage />
+      <div style={{
+        position: 'absolute',
+        top: '35vh',
+        left: '5vw',
+        width: '180px',
+        height: '180px',
+      }}>
+        <MIIApprovedImage />
+      </div>
     </>
 
   );
@@ -110,24 +152,49 @@ const HomePortrait = () => {
 
 const HomeLandscape = () => {
   return (
-    <>
-      <CompanyName />
-      <Desk />
-      <TadghImageBrowser />
-      <DeskAboutContainer />
-      <MIIApprovedImage />
-    </>
+    <div style={{
+      height: '100%',
+      overflowY: 'hidden',
+    }}>
+      <Navigation />
+      <CompanyName style={{
+        position: 'absolute',
+        left: '5%',
+        top: '5%',
+        fontSize: '16vh',
+        lineHeight: '18vh',
+      }}/>
+      <Desk 
+      textContainerWidth='50%'
+      style={{
+        minHeight: '30%',
+      }}/>
+      <div style={{
+        position: 'absolute',
+        height: "70vh",
+        width: "auto",
+        top: "10%",
+        left: "50vw"
+      }}>
+        <TadghImage />
+      </div>
+      <div style={{
+        position: 'absolute',
+        bottom: '5vh',
+        right: '5vh',
+        width: '50vh',
+        height: '50vh',
+      }}>
+        <MIIApprovedImage />
+      </div>
+    </div>
   );
 }
 
 const HomeLayout = () => {
 
-  // const showFloatingMenu = useViewportSize().screenWidth > 800;
-
   return (
-    <PageWithMenu
-    // noMenu={showFloatingMenu}
-    >
+    <PageWithMenu>
       <MobileView>
         <PortraitView>
           <HomePortrait />
@@ -144,7 +211,6 @@ const HomeLayout = () => {
           <HomeNarrow />
         </NarrowView>
       </BrowserView>
-      {/* {showFloatingMenu ? <FloatingMenu /> : null} */}
     </PageWithMenu>
   );
 }

@@ -5,7 +5,7 @@ img.tadgh {
 img.tadgh-portrait {
   height: 50%;
   width: auto;
-  top: 40%;
+  top: 35%;
   right: -30%;
 }
 
@@ -59,6 +59,7 @@ p.desk-bio {
 
 .flexbox-full-width {
   display: flex;
+  justify-content: start;
   align-items: stretch;
 }
 
