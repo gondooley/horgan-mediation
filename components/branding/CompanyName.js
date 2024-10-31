@@ -1,4 +1,4 @@
-import '../styles/index.css'
+import '../../styles/index.css'
 
 const CompanyName = ({ style, wide }) => {
   style = style ? style : {};
