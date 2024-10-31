@@ -1,8 +1,7 @@
-import YourAppDotIeFooter from '@/components/YourAppDotIEFooter';
+import YourAppDotIeFooter from '@/components/footer/YourAppDotIEFooter';
 import '../app/globals.css';
-import HoldingPage from '@/components/UnderConstruction';
+import HoldingPage from '@/utilities/UnderConstruction';
 import Head from 'next/head';
-import { useRouter } from 'next/router';
 
 function MyApp({ Component, pageProps }) {
 

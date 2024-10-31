@@ -1,10 +1,10 @@
-import CompanyName from '@/components/CompanyName';
+import CompanyName from '@/components/branding/CompanyName';
 import about from '../text/about.json'
-import { LandscapeView, NarrowView, PortraitView, WideView } from '@/components/ViewportSizeHook';
+import { LandscapeView, NarrowView, PortraitView, WideView } from '@/utilities/viewportSizeHook';
 import { BrowserView, MobileView } from 'react-device-detect';
-import PageWithMenu from '@/components/PageWithMenu';
-import Navigation from '@/components/Navigation';
-import MIIWithNavFooter from '@/components/MIIWIthNavFooter';
+import PageWithMenu from '@/components/menu/PageWithMenu';
+import Navigation from '@/components/menu/Navigation';
+import MIIWithNavFooter from '@/components/footer/MIIWIthNavFooter';
 
 const AboutText1 = () => {
   return (

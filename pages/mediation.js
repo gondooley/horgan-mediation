@@ -2,14 +2,14 @@ import Link from 'next/link';
 import '../styles/mediation.css';
 import { useEffect, useState } from 'react';
 import { BrowserView, MobileView } from 'react-device-detect';
-import { LandscapeView, NarrowView, PortraitView, WideView } from '@/components/ViewportSizeHook';
-import MIIApprovedImage from '@/components/MIIApproved';
-import PageWithMenu from '@/components/PageWithMenu';
-import Navigation from '@/components/Navigation';
+import { LandscapeView, NarrowView, PortraitView, WideView } from '@/utilities/viewportSizeHook';
+import MIIApprovedImage from '@/components/branding/MIIApproved';
+import PageWithMenu from '@/components/menu/PageWithMenu';
+import Navigation from '@/components/menu/Navigation';
 import { AgreementHeadingIcon, ConfidentialityProcessIcon,
   ImpartialProcessIcon, MediationHeadingIcon,
   ProcessHeadingIcon, SelfDeterminationProcessIcon,
-  VoluntaryProcessIcon } from '@/components/mediationIcons';
+  VoluntaryProcessIcon } from '@/components/mediation/mediationIcons';
 
 const ProcessElement = ({ image, heading, text, isNarrow }) => {
 

@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from 'react';
-import CompanyName from '@/components/CompanyName';
+import CompanyName from '@/components/branding/CompanyName';
 import about from '../text/about.json'
-import { PortraitView, LandscapeView, WideView, NarrowView, useViewportSize } from '@/components/ViewportSizeHook';
+import { PortraitView, LandscapeView, WideView, NarrowView, useViewportSize } from '@/utilities/viewportSizeHook';
 import '../styles/index.css'
 import { BrowserView, MobileView } from 'react-device-detect';
-import MIIApprovedImage from '@/components/MIIApproved';
-import PageWithMenu from '@/components/PageWithMenu';
-import Navigation from '@/components/Navigation';
+import MIIApprovedImage from '@/components/branding/MIIApproved';
+import PageWithMenu from '@/components/menu/PageWithMenu';
+import Navigation from '@/components/menu/Navigation';
 
 const Desk = ({ style, textContainerWidth }) => {
   return (

@@ -1,9 +1,9 @@
-import Navigation from "@/components/Navigation";
-import PageWithMenu from "@/components/PageWithMenu";
+import Navigation from "@/components/menu/Navigation";
+import PageWithMenu from "@/components/menu/PageWithMenu";
 import { useEffect, useState } from "react";
-import MIIWithNavFooter from "@/components/MIIWIthNavFooter";
-import { LandscapeView, PortraitView } from "@/components/ViewportSizeHook";
-import MIIApprovedImage from "@/components/MIIApproved";
+import MIIWithNavFooter from "@/components/footer/MIIWIthNavFooter";
+import { LandscapeView, PortraitView } from "@/utilities/viewportSizeHook";
+import MIIApprovedImage from "@/components/branding/MIIApproved";
 
 const Contact = () => {
   const [clientSideLayout, setClientSideLayout] = useState(null);

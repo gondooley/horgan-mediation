@@ -1,5 +1,5 @@
-const { default: MIIApprovedImage } = require("./MIIApproved");
-const { default: Navigation } = require("./Navigation");
+const { default: MIIApprovedImage } = require("../branding/MIIApproved");
+const { default: Navigation } = require("../menu/Navigation");
 
 const MIIWithNavFooter = ({ style }) => {
   return (
