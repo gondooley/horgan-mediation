@@ -25,13 +25,6 @@ p.desk-bio {
   margin-right: 10%;
 }
 
-.background-image-bridge {
-  margin: 24px;
-  background-size: cover;
-  background-position: center;
-  background-image: url('/images/med0-800x530.png');
-}
-
 .blank-divider {
   min-width: '100%';
   min-height: '50px';
