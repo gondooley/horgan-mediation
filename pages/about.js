@@ -5,6 +5,7 @@ import { BrowserView, MobileView } from 'react-device-detect';
 import PageWithMenu from '@/components/PageWithMenu';
 import Navigation from '@/components/Navigation';
 import MIIWithNavFooter from '@/components/MIIWIthNavFooter';
+import '../styles/about.css';
 
 const AboutText1 = () => {
   return (
@@ -53,7 +54,9 @@ const ShakingHandsImage = ({ style }) => {
 
 const AboutSection1 = () => {
   return (
-    <div className='flexbox-full-width' id="about">
+    <div className='flexbox-full-width' style={{
+      alignItems: 'center'
+    }}>
       <AboutText1 />
       <BridgeImage />
     </div>
@@ -153,23 +156,6 @@ const AboutWide = () => {
       <Navigation />
       <BlankDivider />
     </div>
-  );
-}
-
-const AboutNarrow = () => {
-  return (
-    <>
-      <AboutSection1 />
-      <AboutSection2 />
-      <AboutSection3 />
-
-      <BlankDivider />
-      <BlankDivider />
-      <BlankDivider />
-      <Navigation />
-      <BlankDivider />
-      <BlankDivider />
-    </>
   );
 }
 
