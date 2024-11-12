@@ -28,10 +28,14 @@ const Contact = () => {
             <p style={{
               margin: '64px 0 64px 0'
             }}>
-              <a href="mailto:info@horganmediation.ie">info@horganmediation.ie</a>
+              <a href="mailto:info@horganmediation.ie" target="_top">
+                info@horganmediation.ie
+              </a>
             </p>
             <p>
-              <a href="tel:+353851817886">(085) 181 7886</a>
+              <a href="tel:+353851817886" target="_top">
+                (085) 181 7886
+              </a>
             </p>
           </div>
           {/* <p style={{
@@ -90,7 +94,7 @@ const Contact = () => {
           width: '100px',
           height: '100px'
 
-        }}/>
+        }} />
       </div>
     );
   }
@@ -98,13 +102,13 @@ const Contact = () => {
   useEffect(() => {
     setClientSideLayout(
       <PageWithMenu>
-        
-          <PortraitView>
-            <Narrow />
-          </PortraitView>
-          <LandscapeView>
-            <Wide />
-          </LandscapeView>
+
+        <PortraitView>
+          <Narrow />
+        </PortraitView>
+        <LandscapeView>
+          <Wide />
+        </LandscapeView>
       </PageWithMenu>
     );
   }, []);

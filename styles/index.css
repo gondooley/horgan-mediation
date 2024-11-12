@@ -6,11 +6,11 @@ img.tadgh-portrait {
   height: 400px;
   width: auto;
   bottom: 15%;
-  right: -100px;
+  right: -120px;
 }
 
 img.tadgh-browser {
-  height: 90%;
+  height: 85%;
   width: auto;
   top: 5%;
   left: 50%;
@@ -71,6 +71,10 @@ p.desk-bio {
 
 .home-page {
   min-height: 500px;
+}
+
+.home-page-narrow {
+  min-height: 800px;
 }
 
 .margin-double {

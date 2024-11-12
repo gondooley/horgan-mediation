@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import CompanyName from '@/components/branding/CompanyName';
 import about from '../text/about.json'
-import { PortraitView, LandscapeView, WideView, NarrowView, useViewportSize } from '@/utilities/viewportSizeHook';
+import { PortraitView, LandscapeView, WideView, NarrowView } from '@/utilities/viewportSizeHook';
 import '../styles/index.css'
 import { BrowserView, MobileView } from 'react-device-detect';
 import MIIApprovedImage from '@/components/branding/MIIApproved';
@@ -68,43 +68,6 @@ const DeskAboutContainer = ({ style }) => {
   );
 }
 
-// const FloatingMenu = () => {
-//   return (
-//     <div 
-//     className='montserrat-font'
-//     style={{
-//       position: 'absolute',
-//       right: '5%',
-//       top: '10%',
-//       fontSize: '36px',
-//       lineHeight: '48px'
-//     }}>
-//       About<br />
-//       Mediation<br />
-//       Family Mediation<br />
-//       Contact<br />
-//     </div>
-//   );
-// }
-
-const HomeWide = () => {
-  return (
-    <div className='home-page'>
-      <Navigation />
-      <div className='float'>
-        <CompanyName />
-      </div>
-      <Desk />
-      <div className='on-desk'>
-        <MIIApprovedImage />
-      </div>
-      <TadghImageBrowser />
-      <DeskAboutContainer />
-    </div>
-  );
-}
-
-
 const HomePortrait = () => {
   return (
     <div className='home-page'>
@@ -118,8 +81,8 @@ const HomePortrait = () => {
           textAlign: 'center'
         }}>
           <CompanyName style={{
-            fontSize: '48px',
-            lineHeight: '64px'
+            fontSize: '36px',
+            lineHeight: '48px'
           }} />
         </div>
       </div>
@@ -181,6 +144,57 @@ const HomeLandscape = () => {
   );
 }
 
+const HomeWide = () => {
+  return (
+    <div className='home-page'>
+      <Navigation />
+      <div className='float'>
+        <CompanyName />
+      </div>
+      <Desk />
+      <div className='on-desk'>
+        <MIIApprovedImage />
+      </div>
+      <TadghImageBrowser />
+      <DeskAboutContainer />
+    </div>
+  );
+}
+
+const HomeNarrow = () => {
+  return (
+    <div className='home-page-narrow'>
+      <Navigation />
+      <div style={{
+        display: 'flex',
+        justifyContent: 'left',
+      }}>
+        <div style={{
+          marginTop: '2vh',
+          marginLeft: '5vw',
+          textAlign: 'left'
+        }}>
+          <CompanyName style={{
+            fontSize: '48px',
+            lineHeight: '64px'
+          }} />
+        </div>
+      </div>
+      <Desk />
+      <TadghImageBrowser />
+      <div style={{
+        position: 'absolute',
+        top: '35vh',
+        left: '5vw',
+        width: '180px',
+        height: '180px',
+      }}>
+        <MIIApprovedImage />
+      </div>
+    </div>
+  );
+}
+
 const HomeLayout = () => {
 
   return (
@@ -198,7 +212,7 @@ const HomeLayout = () => {
           <HomeWide />
         </WideView>
         <NarrowView>
-          <HomePortrait />
+          <HomeNarrow />
         </NarrowView>
       </BrowserView>
     </PageWithMenu>
