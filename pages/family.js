@@ -1,10 +1,10 @@
 import about from '../text/about.json';
 import { Montserrat } from 'next/font/google'
 import { useEffect, useState } from 'react';
-import { LandscapeView, NarrowView, PortraitView, WideView } from '@/components/ViewportSizeHook';
-import PageWithMenu from '@/components/PageWithMenu';
-import MIIWithNavFooter from '@/components/MIIWIthNavFooter';
-import Navigation from '@/components/Navigation';
+import { LandscapeView, PortraitView } from '../utilities/viewportSizeHook';
+import PageWithMenu from '@/components/menu/PageWithMenu';
+import MIIWithNavFooter from '@/components/footer/MIIWIthNavFooter';
+import Navigation from '@/components/menu/Navigation';
 
 const montserratFont = Montserrat({ subsets: ['latin'], weight: '300' });
 

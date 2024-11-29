@@ -3,10 +3,10 @@ import Link from 'next/link';
 import '../styles/mediation.css';
 import { useEffect, useState } from 'react';
 import { BrowserView, MobileView } from 'react-device-detect';
-import { LandscapeView, NarrowView, PortraitView, WideView } from '@/components/ViewportSizeHook';
-import MIIApprovedImage from '@/components/MIIApproved';
-import PageWithMenu from '@/components/PageWithMenu';
-import Navigation from '@/components/Navigation';
+import { LandscapeView, NarrowView, PortraitView, WideView } from '@/utilities/viewportSizeHook';
+import MIIApprovedImage from '@/components/branding/MIIApproved';
+import PageWithMenu from '@/components/menu/PageWithMenu';
+import Navigation from '@/components/menu/Navigation';
 
 const halantFont = Halant({ subsets: ['latin'], weight: '400' });
 const montserratFont = Montserrat({ subsets: ['latin'], weight: '300' });

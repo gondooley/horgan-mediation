@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react';
-import { LandscapeView, PortraitView } from '@/components/ViewportSizeHook';
-import PageWithMenu from '@/components/PageWithMenu';
-import MIIWithNavFooter from '@/components/MIIWIthNavFooter';
-import Navigation from '@/components/Navigation';
+import { LandscapeView, PortraitView } from '@/utilities/viewportSizeHook';
+import PageWithMenu from '@/components/menu/PageWithMenu';
+import MIIWithNavFooter from '@/components/footer/MIIWIthNavFooter';
+import Navigation from '@/components/menu/Navigation';
 import text from '../text/workplaceAndCommercial.json'
 
 const MainHeading = ({ headingText }) => {
@@ -255,7 +255,7 @@ const MediationLayout = () => {
       }}>
         &nbsp;
       </div>
-      <CenteredWideCompanyName />
+      {/* <CenteredWideCompanyName /> */}
     </div>
   );
 }
