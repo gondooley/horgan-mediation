@@ -1,18 +1,17 @@
-import { Montserrat } from 'next/font/google'
 import { useEffect, useState } from 'react';
-import { LandscapeView, NarrowView, PortraitView, WideView } from '@/components/ViewportSizeHook';
+import { LandscapeView, PortraitView } from '@/components/ViewportSizeHook';
 import PageWithMenu from '@/components/PageWithMenu';
 import MIIWithNavFooter from '@/components/MIIWIthNavFooter';
 import Navigation from '@/components/Navigation';
 import text from '../text/workplaceAndCommercial.json'
 
-const MainHeading = () => {
+const MainHeading = ({ headingText }) => {
   return (
     <h1 style={{
       margin: '56px 0 24px 0',
       textAlign: 'center'
     }}>
-      {text.title}
+      {headingText}
     </h1>
   );
 }
@@ -33,18 +32,12 @@ const Heading1 = () => {
 
 const Heading2 = () => {
   return (
-    <Heading>
-      {text.heading2}
-    </Heading>
+    <div style={{ width: '100%', textAlign: 'center', marginBlock: '24px' }} >
+      <Heading>
+        {text.heading2}
+      </Heading>
+    </div>
   );
-}
-
-const Heading3 = () => {
-  return (
-    <Heading>
-      {text.heading3}
-    </Heading>
-  )
 }
 
 const Text1 = () => {
@@ -59,20 +52,24 @@ const Text1 = () => {
 
 const Text2 = () => {
   return (
-    <p style={{
+    <div style={{
       margin: '0 10vw 0 10vw',
     }}>
-      {text.wac02.intro}
-      <ul>
-        {text.wac02.list.map((item, index) => {
-          return (
-            <li>
-              {item}
-            </li>
-          );
-        })}
-      </ul>
-    </p>
+      <p style={{ marginBottom: '12px' }} >
+        {text.wac02.intro}
+      </p>
+      <p style={{ paddingLeft: '24px' }}>
+        <ul>
+          {text.wac02.list.map((item, index) => {
+            return (
+              <li>
+                {item}
+              </li>
+            );
+          })}
+        </ul>
+      </p>
+    </div>
   );
 }
 
@@ -81,8 +78,15 @@ const Text3 = () => {
     <p style={{
       margin: '0 10vw 0 10vw',
     }}>
-      {text.wac03.quote}<br />
-      - {text.wac03.credit}
+      <blockquote>
+        {text.wac03.quote}
+      </blockquote>
+      <p style={{
+        textAlign: 'right',
+        marginTop: '16px'
+      }} >
+        - {text.wac03.credit}
+      </p>
     </p>
   );
 }
@@ -124,31 +128,31 @@ const ImageContainer = ({ children }) => {
   );
 }
 
-const CoupleArguingImage = () => {
+const WorkDisputeImage1 = () => {
   return (
     <ImageContainer>
-      <img alt="couple arguing" src="/images/family-stock/argue.png" width="100%" height="auto" />
+      <img alt="silhouetted arguing" src="/images/work-dispute/work1.png" width="100%" height="auto" />
     </ImageContainer>
   );
 }
-const WomanComfortingChildImage = () => {
+const WorkDisputeImage2 = () => {
   return (
     <ImageContainer>
-      <img alt="woman comforting child" src="/images/family-stock/comfort.jpg" width="100%" height="auto" />
+      <img alt="meeting disagreement" src="/images/work-dispute/work2.png" width="100%" height="auto" />
     </ImageContainer>
   );
 }
-const InFrontOfChildrenImage = () => {
+const WorkDisputeImage3 = () => {
   return (
     <ImageContainer>
-      <img alt="couple arguing in front of children" src="/images/family-stock/four-family.png" width="100%" height="auto" />
+      <img alt="symbolic standoff" src="/images/work-dispute/work3.png" width="100%" height="auto" />
     </ImageContainer>
   );
 }
-const TwoUpsetWomenImage = () => {
+const WorkDisputeImage4 = () => {
   return (
     <ImageContainer>
-      <img alt="two upset women" src="/images/family-stock/upset.png" width="100%" height="auto" />
+      <img alt="signing documents" src="/images/work-dispute/work4.png" width="100%" height="auto" />
     </ImageContainer>
   );
 }
@@ -159,47 +163,27 @@ const TopSection = () => {
       <PortraitView>
         <Text1 />
         <div style={{
+          width: '100%',
           display: 'flex',
-          justifyContent: 'center'
+          justifyContent: 'center',
+          alignItems: 'center',
+          flexDirection: 'column',
         }}>
-          <InFrontOfChildrenImage />
-        </div>
-        <Heading1 />
-        <Text2 />
-        <div style={{
-          display: 'flex',
-          justifyContent: 'center'
-        }}>
-          <CoupleArguingImage />
+          <WorkDisputeImage2 />
+          <div style={{ margin: '16px 0 16px 0' }}>
+            <Heading1 />
+          </div>
+          <Text2 />
+          <WorkDisputeImage1 />
         </div>
       </PortraitView>
       <LandscapeView>
-        <div style={{
-          display: 'flex',
-          justifyContent: 'space-around',
-          alignItems: 'center'
-        }}>
-          <div style={{
-            flex: '1',
-            display: 'flex',
-            justifyContent: 'center'
-          }}>
-            <InFrontOfChildrenImage />
-          </div>
-          <div style={{
-            flex: '1',
-          }}>
-            <Text1 />
-            <Text2 />
-          </div>
-          <div style={{
-            flex: '1',
-            display: 'flex',
-            justifyContent: 'center'
-          }}>
-            <WomanComfortingChildImage />
-          </div>
-        </div>
+        <SideBySide
+          left={<WorkDisputeImage2 />}
+          right={<Text1 />} />
+        <SideBySide
+          left={<Text2 />}
+          right={<WorkDisputeImage3 />} />
       </LandscapeView>
     </>
   );
@@ -232,35 +216,38 @@ const BottomSection = () => {
           display: 'flex',
           justifyContent: 'center'
         }}>
-          <TwoUpsetWomenImage />
+          <WorkDisputeImage3 />
         </div>
+        <Heading2 />
         <Text4 />
         <div style={{
           display: 'flex',
           justifyContent: 'center'
         }}>
-          <WomanComfortingChildImage />
+          <WorkDisputeImage4 />
         </div>
       </PortraitView>
       <LandscapeView>
         <SideBySide
-          left={<CoupleArguingImage />}
+          left={<WorkDisputeImage1 />}
           right={<Text3 />} />
+        <Heading2 />
         <SideBySide
           left={<Text4 />}
-          right={<TwoUpsetWomenImage />} />
+          right={<WorkDisputeImage4 />} />
       </LandscapeView>
     </>
   );
 }
 
-const FamilyLayout = () => {
+const MediationLayout = () => {
   return (
     <div>
       <Navigation />
-      <MainHeading />
+      <MainHeading headingText={text.title} />
       <TopSection />
       <BottomSection />
+      <MainHeading headingText={text.heading3} />
       <Text5 />
       <div style={{
         minHeight: '32px',
@@ -272,13 +259,13 @@ const FamilyLayout = () => {
   );
 }
 
-const Family = () => {
+const Mediation = () => {
   const [clientSideLayout, setClientSideLayout] = useState(null);
 
   useEffect(() => {
     setClientSideLayout(
       <PageWithMenu>
-        <FamilyLayout />
+        <MediationLayout />
         <MIIWithNavFooter />
         <div style={{
           width: '100vw',
@@ -296,4 +283,4 @@ const Family = () => {
   return (<>{clientSideLayout}</>);
 }
 
-export default Family;
+export default Mediation;
