@@ -185,7 +185,7 @@ const MediationBrowserLayout = ({ isNarrow }) => {
         <p style={{
           marginTop: '64px'
         }}>
-          Engaging a professional Mediator ensures a more flexible and holistic approach to dispute resolution. It is a cost-effective alternative to litigation, saving both time and resources, while preserving important relationships between both parties. With the guidance of an experienced Mediator, parties can find solutions that work for everyone involved, keeping a focus on collaboration and respect. As awareness in society increases, the benefits of Mediation as a viable solution to resolve differences is gaining momentum. Consequently,
+          Engaging a professional Mediator ensures a more flexible and holistic approach to dispute resolution. It is a cost-effective alternative to litigation, saving both time and resources, while preserving important relationships between both parties. With the guidance of an experienced Mediator, parties can find solutions that work for everyone involved, keeping a focus on collaboration and respect. As awareness in society grows, mediation is increasingly recognised as a viable solution for resolving differences. Consequently,
           <Link href="https://www.irishstatutebook.ie/eli/2017/act/27/enacted/en/" target="_blank" rel="noopener noreferrer">
             the Mediation Act of 2017
           </Link>
@@ -196,12 +196,12 @@ const MediationBrowserLayout = ({ isNarrow }) => {
           <h2 className={halantFont.className}>The Mediation Process</h2>
         </HeadingWithSymbol>
         <p>
-          The parties in conflict agree to engage directly with a Mediator themselves, or one that may be recommended through their respective solicitors.  Professional Mediation services are promoted by the Mediators Institute of Ireland (MII) which oversees the code of ethics and professional conduct for Mediation in Ireland. Once contact is made with a Mediator, preliminary individual meetings are arranged to explore the issues in confidence. Following these preliminary individual meetings, if both parties are happy to continue with the voluntary Mediation process, the Mediator will produce an agreement to mediate. This agreement is a document signed by all parties at the outset, outlining their obligations of respect and good faith. The following would be general principles that apply to the journey.
+          The parties in conflict agree to engage directly with a Mediator themselves, or one that may be recommended through their respective solicitors.  Professional Mediation services are promoted by the Mediators Institute of Ireland (MII), which oversees the code of ethics and professional conduct for Mediation in Ireland. Once contact is made with a Mediator, preliminary individual meetings are arranged to explore the issues in confidence. Following these preliminary individual meetings, if both parties are happy to continue with the voluntary Mediation process, the Mediator will produce an agreement to mediate. This agreement is a document signed by all parties at the outset, outlining their obligations of respect and good faith. The following would be general principles that apply to the journey.
         </p>
         <ProcessElement
           image={<ImpartialImage />}
           heading='Impartial'
-          text='The essence of building trust between parties in dispute, is that they rely on the impartiality of the Mediator as they begin some difficult conversations. A Mediator will not take sides, but work for both parties equally, to facilitate transition to a better place in their relationship.'
+          text='The essence of building trust between parties in dispute is that they rely on the impartiality of the Mediator, as they begin some difficult conversations. A Mediator will not take sides, but work for both parties equally, to facilitate transition to a better place in their relationship.'
           isNarrow={isNarrow} />
         <ProcessElement
           image={<VoluntaryImage />}

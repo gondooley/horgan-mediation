@@ -58,7 +58,13 @@ const AboutSection1 = () => {
       alignItems: 'center'
     }}>
       <AboutText1 />
-      <BridgeImage />
+      <div>
+
+      </div>
+      <BridgeImage style={{
+        minHeight: '300px',
+        margin: '0 10vw 0 10vw',
+      }} />
     </div>
   );
 }
@@ -125,7 +131,7 @@ const AboutPortraitLayout = () => {
       <AboutText1 />
 
       <BridgeImage style={{
-        minHeight: '140px',
+        minHeight: '300px',
         margin: '0 10vw 0 10vw',
       }} />
       <AboutText2 />
