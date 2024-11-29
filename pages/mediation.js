@@ -62,7 +62,7 @@ const Text2 = () => {
         <ul>
           {text.wac02.list.map((item, index) => {
             return (
-              <li>
+              <li key={index}>
                 {item}
               </li>
             );
