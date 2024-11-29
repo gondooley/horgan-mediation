@@ -12,7 +12,8 @@ const menuInfo = [
     // 'subitems': [menuItem] - currently not deployed
   },
   { 'item': menuItem('About', '/about') },
-  { 'item': menuItem('Mediation', '/mediation') },
+  { 'item': menuItem('Mediation', '/mediation-general') },
+  { 'item': menuItem('Workplace and Commercial', '/mediation') },
   { 'item': menuItem('Family Mediation', '/family') },
 ];
 
