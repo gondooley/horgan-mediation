@@ -1,0 +1,26 @@
+{
+  "dev": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-horganmediation-dev-191704-authRole",
+      "UnauthRoleArn": "arn:aws:iam::061441192836:role/amplify-horganmediation-dev-191704-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::061441192836:role/amplify-horganmediation-dev-191704-authRole",
+      "Region": "eu-west-1",
+      "DeploymentBucketName": "amplify-horganmediation-dev-191704-deployment",
+      "UnauthRoleName": "amplify-horganmediation-dev-191704-unauthRole",
+      "StackName": "amplify-horganmediation-dev-191704",
+      "StackId": "arn:aws:cloudformation:eu-west-1:061441192836:stack/amplify-horganmediation-dev-191704/2f1fc570-b1ab-11ef-9745-0229996d7cd5",
+      "AmplifyAppId": "d2icc2e8yt5w1n"
+    },
+    "categories": {
+      "function": {
+        "ContactAPIHandler": {
+          "deploymentBucketName": "amplify-horganmediation-dev-191704-deployment",
+          "s3Key": "amplify-builds/ContactAPIHandler-41326472754944374663-build.zip"
+        }
+      },
+      "api": {
+        "ContactAPI": {}
+      }
+    }
+  }
+}
