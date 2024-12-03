@@ -59,7 +59,10 @@ export default async function handler(req, res) {
 }
 
 const checkSTS = async () => {
-  const stsClient = new STSClient({ region: process.env.MY_AWS_REGION });
+  const stsClient = new STSClient({ region: myRegion });
+
+  console.log('STS Client Config:', stsClient.config);
+
   const command = new GetCallerIdentityCommand({});
   
   try {
