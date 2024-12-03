@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import MIIWithNavFooter from "@/components/footer/MIIWIthNavFooter";
 import { LandscapeView, PortraitView } from "@/utilities/viewportSizeHook";
 import MIIApprovedImage from "@/components/branding/MIIApproved";
+// import ContactForm from "@/components/contact/ContactForm";
 
 const Contact = () => {
   const [clientSideLayout, setClientSideLayout] = useState(null);
@@ -43,8 +44,8 @@ const Contact = () => {
             fontSize: '20px'
           }}>
             Alternatively you can send a message directly with this form:
-            </p> */}
-          {/* <ContactForm /> */}
+            </p>
+             <ContactForm /> */}
         </div>
         <MIIWithNavFooter style={{
           position: 'absolute',
@@ -84,8 +85,8 @@ const Contact = () => {
             fontSize: '20px'
           }}>
             Alternatively you can send a message directly with this form:
-            </p> */}
-          {/* <ContactForm /> */}
+            </p>
+          <ContactForm /> */}
         </div>
         <MIIApprovedImage style={{
           position: 'absolute',

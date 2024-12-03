@@ -3,7 +3,7 @@ import { LandscapeView, PortraitView } from '@/utilities/viewportSizeHook';
 import PageWithMenu from '@/components/menu/PageWithMenu';
 import MIIWithNavFooter from '@/components/footer/MIIWIthNavFooter';
 import Navigation from '@/components/menu/Navigation';
-import text from '../text/workplaceAndCommercial.json'
+import text from '../text/businessAndCommercial.json'
 
 const MainHeading = ({ headingText }) => {
   return (

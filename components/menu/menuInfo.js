@@ -13,7 +13,7 @@ const menuInfo = [
   },
   { 'item': menuItem('About', '/about') },
   { 'item': menuItem('Mediation', '/mediation-general') },
-  { 'item': menuItem('Workplace and Commercial', '/mediation') },
+  { 'item': menuItem('Business and Commercial', '/mediation') },
   { 'item': menuItem('Family Mediation', '/family') },
 ];
 
