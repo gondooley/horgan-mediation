@@ -8,8 +8,11 @@ const receiverEmail = process.env.RECEIVER_EMAIL;
 export default async function handler(req, res) {
   console.log('API Route Invoked'); 
 
+
   try {
     await checkSTS();
+    console.log('AWS Credentials:', process.env.AWS_ACCESS_KEY_ID, process.env.AWS_SECRET_ACCESS_KEY);
+
   } catch (error) {
     res.status(500).json({ message: 'Invalid AWS credentials' });
     return;
