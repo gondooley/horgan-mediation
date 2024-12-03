@@ -1,30 +1,24 @@
-import { SESClient, SendEmailCommand } from '@aws-sdk/client-ses';
-import { STSClient, GetCallerIdentityCommand } from '@aws-sdk/client-sts';
+const { SESClient, SendEmailCommand } = require('@aws-sdk/client-ses');
+const { STSClient, GetCallerIdentityCommand } = require('@aws-sdk/client-sts');
 
-const myRegion = process.env.MY_AWS_REGION;
-const senderEmail = process.env.SENDER_EMAIL;
-const receiverEmail = process.env.RECEIVER_EMAIL;
+const myRegion = 'eu-west-1';
+const senderEmail = 'servermanagement@yourapp.ie'; 
+const receiverEmail = 'horganmediation@yourapp.ie'; 
 
-export default async function handler(req, res) {
-  console.log('API Route Invoked'); 
-
+const handler = async (event) => {
 
   try {
     await checkSTS();
-    console.log('AWS Credentials:', process.env.AWS_ACCESS_KEY_ID, process.env.AWS_SECRET_ACCESS_KEY);
-
   } catch (error) {
-    res.status(500).json({ message: 'Invalid AWS credentials' });
-    return;
+    return {
+      statusCode: 500,
+      body: JSON.stringify({ message: 'Invalid AWS credentials' }),
+    };
   }
 
-  console.log('My region: ', myRegion);
-  console.log(`Request Method: ${req.method}`); 
+  if (event.httpMethod === 'POST') {
 
-  if (req.method === 'POST') {
-    console.log('POST request received'); 
-    const { name, email, message } = req.body;
-    console.log('Received data:', { name, email, message });
+    const { name, email, message } = JSON.parse(event.body); // Parse the body
 
     const params = {
       Source: senderEmail,
@@ -39,34 +33,38 @@ export default async function handler(req, res) {
       },
     };
 
-    console.log('SES Parameters:', params);
-
     try {
       const ses = new SESClient({ region: myRegion });
       const command = new SendEmailCommand(params);
-      console.log('Sending email...');
       await ses.send(command);
-      console.log('Email sent successfully');
-      res.status(200).json({ message: 'Email sent successfully!' });
+      return {
+        statusCode: 200,
+        body: JSON.stringify({ message: 'Email sent successfully!' }),
+      };
     } catch (error) {
-      console.error('Error sending email:', error);
-      res.status(500).json({ message: 'Failed to send email.', error: error.message });
+      return {
+        statusCode: 500,
+        body: JSON.stringify({ message: 'Failed to send email.', error: error.message }),
+      };
     }
   } else {
     console.warn('Method not allowed');
-    res.status(405).json({ message: 'Method not allowed.' });
+    return {
+      statusCode: 405,
+      body: JSON.stringify({ message: 'Method not allowed.' }),
+    };
   }
-}
+};
 
 const checkSTS = async () => {
   const stsClient = new STSClient({ region: myRegion });
-
   const command = new GetCallerIdentityCommand({});
   
   try {
     const response = await stsClient.send(command);
-    console.log('Caller identity:', response);
   } catch (error) {
     console.error('Error checking STS permissions:', error.message);
   }
 };
+
+module.exports = handler;

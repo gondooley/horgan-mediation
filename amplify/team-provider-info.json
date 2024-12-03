@@ -15,7 +15,7 @@
       "function": {
         "ContactAPIHandler": {
           "deploymentBucketName": "amplify-horganmediation-dev-191704-deployment",
-          "s3Key": "amplify-builds/ContactAPIHandler-6b55372b332b4537524b-build.zip"
+          "s3Key": "amplify-builds/ContactAPIHandler-77756436764746723075-build.zip"
         }
       },
       "api": {

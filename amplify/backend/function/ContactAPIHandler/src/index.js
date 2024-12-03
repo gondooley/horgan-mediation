@@ -1,15 +1,12 @@
-const awsServerlessExpress = require('aws-serverless-express');
-const app = require('./app');
+const contactHandler = require('./contact');
 
-/**
- * @type {import('http').Server}
- */
-const server = awsServerlessExpress.createServer(app);
-
-/**
- * @type {import('@types/aws-lambda').APIGatewayProxyHandler}
- */
-exports.handler = (event, context) => {
+exports.handler = async (event) => {
+  console.log('Handler started');
   console.log(`EVENT: ${JSON.stringify(event)}`);
-  return awsServerlessExpress.proxy(server, event, context, 'PROMISE').promise;
+  
+  const response = await contactHandler(event);
+  
+  console.log('Handler finished');
+  return response;
 };
+
