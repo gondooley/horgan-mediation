@@ -7,6 +7,10 @@ const senderEmail = process.env.SENDER_EMAIL;
 const receiverEmail = process.env.RECEIVER_EMAIL;
 
 const getSecretValue = async (secretName) => {
+
+  console.log('Logging MY_AWS_REGION', myRegion);
+  console.log('Logging MY_AWS_REGION (TWO)', process.env.MY_AWS_REGION);
+
   const client = new SecretsManagerClient({ region: myRegion });
 
   try {
@@ -16,7 +20,7 @@ const getSecretValue = async (secretName) => {
     //Parse the secret value if it is JSON format
     return JSON.parse(data.SecretString);
   } catch (error) {
-    console.error("Error retrieving secretL ", error);
+    console.error("Error retrieving secret ", error);
     throw error;
   }
 };
