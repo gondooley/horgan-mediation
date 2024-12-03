@@ -1,18 +1,56 @@
 import { SESClient, SendEmailCommand } from '@aws-sdk/client-ses';
+import { Credentials } from 'aws-sdk';
 import { STSClient, GetCallerIdentityCommand } from '@aws-sdk/client-sts';
-
+import { SecretsManagerClient, GetSecretValueCommand } from '@aws-sdk/client-secrets-manager';
 
 const myRegion = process.env.MY_AWS_REGION;
 const senderEmail = process.env.SENDER_EMAIL;
 const receiverEmail = process.env.RECEIVER_EMAIL;
 
-const ses = new SESClient({ region: myRegion });
+const getSecretValue = async (secretName) => {
+  const client = new SecretsManagerClient({ region: myRegion });
+
+  try {
+    const command = new GetSecretValueCommand({ SecretId: secretName });
+    const data = await client.send(command);
+
+    //Parse the secret value if it is JSON format
+    return JSON.parse(data.SecretString);
+  } catch (error) {
+    console.error("Error retrieving secretL ", error);
+    throw error;
+  }
+};
 
 export default async function handler(req, res) {
+
   console.log('API Route Invoked'); // Check if the API route is hit
 
-  // Call the checkSTS function to test
-  checkSTS();
+  let secrets;
+  try {
+    secrets = await getSecretValue("contactCreds");
+  } catch (error) {
+    res.status(500).json({ message: 'Error retrieving credentials from Secrets Manager' });
+    return;
+  }
+
+  const credentials = new Credentials({
+    accessKeyId: secrets.AWS_ACCESS_KEY_ID,
+    secretAccessKey: secrets.AWS_SECRET_ACCESS_KEY,
+  })
+
+  const ses = new SESClient({
+    region: process.env.MY_AWS_REGION,
+    credentials
+  })
+
+
+  try {
+    await checkSTS();
+  } catch (error) {
+    res.status(500).json({ message: 'Invalid AWS credentials' });
+    return;
+  }
 
   console.log('My region: ', myRegion);
   console.log(`Request Method: ${req.method}`); // Log the request method
@@ -76,16 +114,16 @@ function notifyUserOfSuccess({ userEmail }) {
 
 
 const checkSTS = async () => {
-    const stsClient = new STSClient({ region: process.env.MY_AWS_REGION });
+  const stsClient = new STSClient({ region: process.env.MY_AWS_REGION });
 
-    const command = new GetCallerIdentityCommand({});
+  const command = new GetCallerIdentityCommand({});
 
-    try {
-        const response = await stsClient.send(command);
-        console.log('Caller identity:', response);
-    } catch (error) {
-        console.error('Error checking STS permissions:', error.message);
-    }
+  try {
+    const response = await stsClient.send(command);
+    console.log('Caller identity:', response);
+  } catch (error) {
+    console.error('Error checking STS permissions:', error.message);
+  }
 };
 
 
