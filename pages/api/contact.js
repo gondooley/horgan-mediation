@@ -1,7 +1,3 @@
-// const myRegion = process.env.MY_AWS_REGION || 'eu-west-1';
-// const senderEmail = process.env.REACT_APP_SENDER_EMAIL || 'ger@yourapp.ie';
-// const receiverEmail = process.env.REACT_APP_RECEIVER_EMAIL || 'for_tadgh@yourapp.ie';
-
 import { SESClient, SendEmailCommand } from '@aws-sdk/client-ses';
 import { STSClient, GetCallerIdentityCommand } from '@aws-sdk/client-sts';
 
