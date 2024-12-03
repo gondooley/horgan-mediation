@@ -1,5 +1,4 @@
 import { SESClient, SendEmailCommand } from '@aws-sdk/client-ses';
-import { Credentials } from 'aws-sdk';
 import { STSClient, GetCallerIdentityCommand } from '@aws-sdk/client-sts';
 import { SecretsManagerClient, GetSecretValueCommand } from '@aws-sdk/client-secrets-manager';
 
@@ -34,15 +33,14 @@ export default async function handler(req, res) {
     return;
   }
 
-  const credentials = new Credentials({
-    accessKeyId: secrets.AWS_ACCESS_KEY_ID,
-    secretAccessKey: secrets.AWS_SECRET_ACCESS_KEY,
-  })
-
   const ses = new SESClient({
     region: process.env.MY_AWS_REGION,
-    credentials
-  })
+    credentials: {
+      accessKeyId: secrets.AWS_ACCESS_KEY_ID,
+      secretAccessKey: secrets.AWS_SECRET_ACCESS_KEY,
+    },
+  });
+  
 
 
   try {
