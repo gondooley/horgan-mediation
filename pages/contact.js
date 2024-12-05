@@ -4,7 +4,21 @@ import { useEffect, useState } from "react";
 import MIIWithNavFooter from "@/components/footer/MIIWIthNavFooter";
 import { LandscapeView, PortraitView } from "@/utilities/viewportSizeHook";
 import MIIApprovedImage from "@/components/branding/MIIApproved";
-// import ContactForm from "@/components/contact/ContactForm";
+import ContactForm from "@/components/contact/ContactForm";
+
+const ContactFormComponent = () => {
+  return (
+    <>
+      <p style={{
+        marginTop: '24px',
+        fontSize: '20px'
+      }}>
+        Alternatively you can send a message directly with the form below. Press the button at the bottom of the page to send.
+      </p>
+      <ContactForm />
+    </>
+  );
+}
 
 const Contact = () => {
   const [clientSideLayout, setClientSideLayout] = useState(null);
@@ -17,17 +31,15 @@ const Contact = () => {
         <Navigation />
         <div style={{
           textAlign: 'center',
-          margin: '0 5vh 0 5vh',
+          margin: '8vh 5vh 0 5vh',
         }}>
-          <h1 style={{
-            marginTop: '20vh',
-          }}>Contact Horgan Mediation Solutions</h1>
+          <h1>Contact Horgan Mediation Solutions</h1>
           <div style={{
             fontSize: '24px',
-            marginTop: '24px',
+            marginTop: '8px',
           }}>
             <p style={{
-              margin: '64px 0 64px 0'
+              margin: '8px 0 8px 0'
             }}>
               <a href="mailto:info@horganmediation.ie" target="_top">
                 info@horganmediation.ie
@@ -39,18 +51,9 @@ const Contact = () => {
               </a>
             </p>
           </div>
-          {/* <p style={{
-            marginTop: '24px',
-            fontSize: '20px'
-          }}>
-            Alternatively you can send a message directly with this form:
-            </p>
-             <ContactForm /> */}
+          <ContactFormComponent />
         </div>
-        <MIIWithNavFooter style={{
-          position: 'absolute',
-          bottom: '50px',
-        }} />
+        <MIIWithNavFooter />
       </div>
     );
   }
@@ -66,7 +69,7 @@ const Contact = () => {
           margin: '0 5vh 0 5vh',
         }}>
           <h1 style={{
-            marginTop: '20vh',
+            marginTop: '10vh',
           }}>Contact Horgan Mediation Solutions</h1>
           <div style={{
             fontSize: '24px'
@@ -80,13 +83,7 @@ const Contact = () => {
               <a href="tel:+353851817886">(085) 181 7886</a>
             </p>
           </div>
-          {/* <p style={{
-            marginTop: '24px',
-            fontSize: '20px'
-          }}>
-            Alternatively you can send a message directly with this form:
-            </p>
-          <ContactForm /> */}
+          <ContactFormComponent />
         </div>
         <MIIApprovedImage style={{
           position: 'absolute',

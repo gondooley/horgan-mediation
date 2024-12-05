@@ -34,23 +34,71 @@ function ContactForm() {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <label>
-        Name:
-        <input type="text" name="name" value={formData.name} onChange={handleChange} required />
-      </label>
-      <br />
-      <label>
-        Email:
-        <input type="email" name="email" value={formData.email} onChange={handleChange} required />
-      </label>
-      <br />
-      <label>
-        Message:
-        <textarea name="message" value={formData.message} onChange={handleChange} required />
-      </label>
-      <br />
-      <button type="submit">Send Message</button>
+    <form onSubmit={handleSubmit} style={{
+      width: '100%',
+      marginTop: '16px',
+      fontSize: '24px',
+    }}>
+      <div>
+        <label>
+          YOUR NAME<br />
+          <input
+            type="text"
+            name="name"
+            value={formData.name}
+            onChange={handleChange}
+            required
+            style={{
+              fontSize: '24px',
+              maxWidth: '100%',
+              padding: '8px',
+            }} />
+        </label>
+      </div>
+      <div style={{
+        marginTop: '16px',
+      }}>
+        <label>
+          YOUR EMAIL ADDRESS<br />
+          <input
+            type="email"
+            name="email"
+            value={formData.email}
+            onChange={handleChange}
+            required
+            style={{
+              fontSize: '24px',
+              maxWidth: '100%',
+              padding: '8px',
+            }} />
+        </label>
+      </div>
+      <div style={{
+        marginTop: '16px',
+      }}>
+        <label>
+          YOUR MESSAGE<br />
+          <textarea
+            name="message"
+            value={formData.message}
+            onChange={handleChange}
+            required
+            style={{
+              fontSize: '24px',
+              width: '100%',
+              minHeight: '24vh',
+              resize: 'none',
+              padding: '8px',
+            }} />
+        </label>
+      </div>
+      <div>
+        <button  style={{
+        fontSize: '24px',
+        padding: '8px',
+        margin: '24px',
+      }} type="submit">Send Message</button>
+      </div>
     </form>
   );
 }
