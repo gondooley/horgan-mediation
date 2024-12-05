@@ -7,6 +7,7 @@ import MIIApprovedImage from "@/components/branding/MIIApproved";
 import ContactForm from "@/components/contact/ContactForm";
 
 const ContactFormComponent = () => {
+
   return (
     <>
       <p style={{

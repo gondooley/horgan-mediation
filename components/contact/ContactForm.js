@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 
 function ContactForm() {
   const [formData, setFormData] = useState({ name: '', email: '', message: '' });
+  const [messageIsSent, setMessageIsSent] = useState(false);
 
   const handleChange = (e) => {
     setFormData({
@@ -23,7 +24,7 @@ function ContactForm() {
       });
 
       if (response.ok) {
-        alert('Message sent!');
+        setMessageIsSent(true);
         setFormData({ name: '', email: '', message: '' });
       } else {
         alert('Failed to send message.');
@@ -93,11 +94,14 @@ function ContactForm() {
         </label>
       </div>
       <div>
-        <button  style={{
-        fontSize: '24px',
-        padding: '8px',
-        margin: '24px',
-      }} type="submit">Send Message</button>
+        {messageIsSent
+          ? "Message sent!"
+          : <button style={{
+            fontSize: '24px',
+            padding: '8px',
+            margin: '24px',
+          }} type="submit">Send Message</button>
+        }
       </div>
     </form>
   );
