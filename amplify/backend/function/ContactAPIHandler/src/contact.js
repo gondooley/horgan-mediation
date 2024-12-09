@@ -28,7 +28,7 @@ const handler = async (event) => {
       Message: {
         Subject: { Data: `Contact form submission from ${name}` },
         Body: {
-          Text: { Data: `You have received a new message from ${name} (${email}):\n\n${message}` },
+          Text: { Data: `You've received a new message from ${name} (${email}):\n\n${message}` },
         },
       },
     };
