@@ -6,8 +6,6 @@ import React, { forwardRef } from 'react';
 
 const MenuScrolled = forwardRef(function MenuScrolled(props, ref) {
   const currentPath = useRouter().pathname;
-
-  console.log("Deploying menu scrolled");
   
   return (
     <div

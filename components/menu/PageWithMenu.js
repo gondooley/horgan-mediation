@@ -20,8 +20,6 @@ const PageWithMenu = ({ children, noMenu }) => {
 
   useGSAP((context, contextSafe) => {
 
-    console.log("When I'm fixing something with the scroll menu, I'll start here");
-
     ScrollTrigger.create({
       start: 'top top',
       end: 99999,

@@ -15,13 +15,15 @@ function ContactForm() {
     e.preventDefault();
 
     try {
-      const response = await fetch('https://z58r3iikb0.execute-api.eu-west-1.amazonaws.com/dev/contact', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(formData),
-      });
+      const response = await fetch('https://z58r3iikb0.execute-api.eu-west-1.amazonaws.com/dev/contact',
+        {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(formData),
+        });
+      console.log(response);
 
       if (response.ok) {
         setMessageIsSent(true);
