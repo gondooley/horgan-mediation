@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 
 function ContactForm() {
   const [formData, setFormData] = useState({ name: '', email: '', message: '' });
+  const [messageIsSending, setMessageIsSending] = useState(false);
   const [messageIsSent, setMessageIsSent] = useState(false);
 
   const handleChange = (e) => {
@@ -13,6 +14,7 @@ function ContactForm() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setMessageIsSending(true);
 
     try {
       console.log('Performing fetch');
@@ -27,9 +29,11 @@ function ContactForm() {
       console.log('response', response);
 
       if (response.ok) {
+        setMessageIsSending(false);
         setMessageIsSent(true);
         setFormData({ name: '', email: '', message: '' });
       } else {
+        setMessageIsSending(false);
         alert('Failed to send message.');
       }
     } catch (error) {
@@ -97,13 +101,15 @@ function ContactForm() {
         </label>
       </div>
       <div>
-        {messageIsSent
-          ? "Message sent!"
-          : <button style={{
-            fontSize: '24px',
-            padding: '8px',
-            margin: '24px',
-          }} type="submit">Send Message</button>
+        {messageIsSending
+          ? "Sending message"
+          : messageIsSent
+            ? "Message sent!"
+            : <button style={{
+              fontSize: '24px',
+              padding: '8px',
+              margin: '24px',
+            }} type="submit">Send Message</button>
         }
       </div>
     </form>
