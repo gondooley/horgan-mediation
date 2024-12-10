@@ -15,6 +15,7 @@ function ContactForm() {
     e.preventDefault();
 
     try {
+      console.log('Performing fetch');
       const response = await fetch('https://z58r3iikb0.execute-api.eu-west-1.amazonaws.com/dev/contact',
         {
           method: 'POST',
@@ -23,7 +24,7 @@ function ContactForm() {
           },
           body: JSON.stringify(formData),
         });
-      console.log(response);
+      console.log('response', response);
 
       if (response.ok) {
         setMessageIsSent(true);
