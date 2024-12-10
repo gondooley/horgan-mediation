@@ -3,7 +3,7 @@ const { STSClient, GetCallerIdentityCommand } = require('@aws-sdk/client-sts');
 
 const myRegion = 'eu-west-1';
 const senderEmail = 'servermanagement@yourapp.ie';
-const receiverEmail = 'horganmediation@yourapp.ie';
+const receiverEmail = 'info@horganmediation.ie';
 
 const handler = async (event) => {
   try {
