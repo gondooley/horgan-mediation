@@ -18,7 +18,7 @@ const MainHeading = ({ headingText }) => {
 
 const Heading = ({ children }) => {
   return (
-    <h2>{children}</h2>
+    <h1>{children}</h1>
   );
 }
 
