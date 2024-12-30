@@ -23,7 +23,11 @@ const Navigation = () => {
             }}>
               {itemInfo.item.text}
             </Link>
-            {index < menuInfo.length - 1 && currentPath != itemInfo.item.href ? " - " : null}
+            {index < menuInfo.length - 1
+              && !(currentPath === menuInfo[menuInfo.length - 1].item.href
+                && index == menuInfo.length - 2)
+              ? " - "
+              : null}
           </div>
         );
       })}
