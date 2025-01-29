@@ -1,8 +1,8 @@
 const MIIApprovedImage = ({ style }) => {
   return (
     <img className='MII-approval'
-      src="/images/mii-approved-2024-outer-alpha.png"
-      alt="MII approved mediator 2024"
+      src="/images/mii-approved-2025-outer-alpha.png"
+      alt="MII approved mediator 2025"
       style={{...style}}
     />
   );

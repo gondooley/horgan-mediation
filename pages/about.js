@@ -75,8 +75,8 @@ const AboutSection2 = () => {
       alignItems: 'center',
     }}>
       <img
-        src="/images/mii-approved-2024-outer-alpha.png"
-        alt="MII approved mediator 2024"
+        src="/images/mii-approved-2025-outer-alpha.png"
+        alt="MII approved mediator 2025"
         className='MII-approval'
         style={{
           height: '50vh',

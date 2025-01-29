@@ -11,7 +11,7 @@ const YourAppDotIeFooter = () => {
           color: 'white',
           backgroundColor: 'black',
         }}>
-          ©2024 Site designed, developed and maintained by <a href="http://yourapp.ie">YourApp.ie</a>&nbsp;
+          ©2025 Site designed, developed and maintained by <a href="http://yourapp.ie">YourApp.ie</a>&nbsp;
         </div>
       </footer>
     );
