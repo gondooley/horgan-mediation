@@ -19,7 +19,7 @@ const symbolStyle = {
 
 const MediationImage = () => {
   return (
-    <img alt='mediation' src='/images/process0a-mediation-400x400.png' style={{
+    <img alt='mediation' src='/images/process0a-mediation-400x400.webp' style={{
       width: '64px',
       height: '64px',
       marginRight: '40px'

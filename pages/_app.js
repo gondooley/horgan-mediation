@@ -15,12 +15,19 @@ function MyApp({ Component, pageProps }) {
       {underConstruction
         ? <HoldingPage />
         : <div className="page-wrapper">
-            <Head>
-              <title>Horgan Mediation Solutions</title>
-              <link rel="icon" href="/favicon.ico" sizes="any" />
-            </Head>
-            <Component {...pageProps} />
-            {/* <YourAppDotIeFooter /> */}
+          <Head>
+            <title>Horgan Mediation | Business, Workplace & Family Dispute Resolution in Cork</title>
+            <meta name="description" content="Horgan Mediation provides expert business, commercial, workplace, and family dispute resolution in Cork. Avoid costly legal battles with professional mediation services." />
+            <meta name="keywords" content="mediation Cork, dispute resolution Cork, business mediation, workplace mediation, family mediation, commercial mediation, conflict resolution Cork, Cork mediator, Cork mediators, arbitration Cork, workplace mediator" />
+            <meta property="og:title" content="Horgan Mediation | Business, Workplace & Family Dispute Resolution in Cork" />
+            <meta property="og:description" content="Expert mediation services for business, workplace, commercial, and family disputes in Cork. Resolve conflicts effectively with Horgan Mediation." />
+            <meta property="og:type" content="website" />
+            <meta property="og:url" content="https://www.horganmediation.ie" />
+            <meta property="og:image" content="https://horganmediation.ie/images/med0-800x530.webp" />
+            <link rel="icon" href="/favicon.ico" sizes="any" />
+          </Head>
+          <Component {...pageProps} />
+          {/* <YourAppDotIeFooter /> */}
         </div>
       }
     </>);

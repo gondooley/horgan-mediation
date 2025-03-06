@@ -17,7 +17,7 @@ export const HeadingIcon = ({ alt, src, isBigger }) => {
 export const MediationHeadingIcon = () => {
   return (
     <HeadingIcon alt='mediation'
-      src='/images/process0a-mediation-400x400.png'
+      src='/images/process0a-mediation-400x400.webp'
       isBigger />
   );
 }

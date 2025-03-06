@@ -40,7 +40,7 @@ const BridgeImage = ({ style }) => {
 const ShakingHandsImage = ({ style }) => {
   return (
     <img
-      src="/images/med2-1920x960.png"
+      src="/images/med2-1920x960.webp"
       alt="shaking hands"
       className='margin-double'
       width='100%'
@@ -75,7 +75,7 @@ const AboutSection2 = () => {
       alignItems: 'center',
     }}>
       <img
-        src="/images/mii-approved-2025-outer-alpha.png"
+        src="/images/mii-approved-2025-outer-alpha.webp"
         alt="MII approved mediator 2025"
         className='MII-approval'
         style={{
@@ -96,7 +96,7 @@ const AboutSection3 = () => {
     }}>
       <AboutText3 />
       <img
-        src="/images/med2-1920x960.png"
+        src="/images/med2-1920x960.webp"
         alt="shaking hands"
         width='40%'
         height='auto'
