@@ -12,7 +12,7 @@ const MenuPrompt = ({ setMenuVisible }) => {
       }}>
       <div className='menuWord'
           style={{
-            fontSize: '5vw',
+            fontSize: 'clamp(10px, 5vw, 40px)',
             color: '#1e1e1e',
             padding: '4px 8px 4px 8px',
             backgroundColor: '#efe9e4cc',
